@@ -1,0 +1,35 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+
+@model IEnumerable<WebAppPortfolio.Models.BlogPosts>
+
+@section css {
+<!-- Paged List -->
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+    }
+
+    <h3 style="color:#ffffff">Latest blog posts</h3>
+    @foreach (var item in Model)
+    {
+    <ul class="media-list">
+        <li class="media">
+            <a href="@Url.Action( "BlogPostDetails", new { item.Slug })" class="media-photo" style="background-image:url(/images/portfolio/t5.jpg)"></a>
+            <a href="@Url.Action( "BlogPostDetails", new { item.Slug })" class="media-date" style="background-color:#428bca; border-color:#333333"><span>@item.Created.DateTime.ToString("MMM dd")</span></a>
+            <h5 class="media-heading"><a href="@Url.Action( "BlogPostDetails", new { item.Slug })" style="color:#333333">@item.Title</a></h5>
+            <p>@Html.Raw(item.Body)</p>
+        </li>
+    </ul>
+
+    <script src="~/Scripts/BlogLayout/DotDotDot/jquery.dotdotdot.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#wrapper").dotdotdot({
+                ellipsis: '...',
+                height: 50,
+                wrap: 'word'
+            });
+        });
+    </script>
+
+    }

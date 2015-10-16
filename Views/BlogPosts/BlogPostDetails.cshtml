@@ -1,0 +1,89 @@
+﻿@model WebAppPortfolio.Models.BlogPosts
+
+@{
+    ViewBag.Title = "BlogPostDetails";
+}
+
+@* ==============================================
+        BLOG POST DETAILS
+    ============================================== *@
+
+<div class="bs-docs-section">
+    <h1 id="shortcodes" class="page-header"><i class="fa fa-laptop"></i> @Html.DisplayFor(model => model.Title)
+    </h1>
+</div>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slug)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slug)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MediaURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MediaURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Published)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Published)
+        </dd>
+    </dl>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <input type="button" class="btn btn-primary" value="Modify Post" onclick="location.href='@Url.Action("BlogAdmin")'">
+    }
+<br />
+<br />
+</div>
+

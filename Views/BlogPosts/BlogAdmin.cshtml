@@ -1,0 +1,121 @@
+﻿@model IEnumerable<WebAppPortfolio.Models.BlogPosts>
+
+@{
+    ViewBag.Title = "BlogAdmin";
+}
+
+@section css {
+    <!-- Data Tables -->
+    <link href="~/Scripts/BlogLayout/DataTables/Media/css/jquery.dataTables.css" rel="stylesheet"/>
+    <link href="~/Scripts/BlogLayout/DataTables/Media/css/jquery.dataTables_themeroller.css" rel="stylesheet" />
+
+    <!-- Paged List -->
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+
+<div class="bs-docs-section">
+    <h1 id="shortcodes" class="page-header"><i class="fa fa-gears"></i> Blog Admin Index </h1>
+</div>
+<div>
+    <a href="@Url.Action("BlogPostCreate")" class="btn btn-primary">Create New</a>
+</div>
+<br />
+<table class="table" id="blogTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Updated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slug)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MediaURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Published)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Created)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Updated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Slug)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td id="wrapper">
+                    @Html.Raw(item.Body)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MediaURL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Published)
+                </td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="button" class="btn btn-primary" value="Details" onclick="location.href='@Url.Action("BlogPostDetails", new { item.Slug })'">
+                        </div>
+                        <br />
+                        <br />
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="button" class="btn btn-primary" value="Edit" onclick="location.href='@Url.Action("BlogPostEdit", new { id = item.Id })'">
+                        </div>
+                        <br />
+                        <br />
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="button" class="btn btn-primary" value="Delete" onclick="location.href='@Url.Action("BlogPostDelete", new { id = item.Id })'">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+@section scripts{
+    <script src="~/Scripts/BlogLayout/DataTables/Media/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('#blogTable').DataTable();
+    });
+    </script>
+    <script src="~/Scripts/BlogLayout/DotDotDot/jquery.dotdotdot.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#wrapper").dotdotdot({
+                ellipsis: '...',
+                height: 50,
+                wrap: 'word'
+            });
+        });
+    </script>
+} 

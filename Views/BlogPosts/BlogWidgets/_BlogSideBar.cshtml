@@ -1,0 +1,49 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IEnumerable<WebAppPortfolio.Models.BlogPosts>
+
+@{
+    <div id="sidebar" class="col-sm-4 col-md-4">
+        <aside class="widget">
+            <ul class="nav nav-tabs" id="myTab">
+                <li class="active"><a data-toggle="tab" href="#categories">Categories</a></li>
+                <li class=""><a data-toggle="tab" href="#tags">Tags</a></li>
+                <li class=""><a data-toggle="tab" href="#images">Images</a></li>
+                <li class=""><a data-toggle="tab" href="#links">Links</a></li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div id="categories" class="tab-pane fade active in">
+                    <ul class="media-list">
+                        @foreach (var item in Model)
+                        {
+                            <li class="media">
+                                <a href="" class="media-date">@item.Created.DateTime.ToString("MMM dd")</a>
+                                <h3 class="media-heading"><a href="@Url.Action( "BlogPostDetails", new { item.Slug })">@item.Category</a></h3>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                @*<div id="tags" class="tab-pane fade">
+                    @foreach (var item in Model)
+                    {
+                        <a class="label label-primary" href="@Url.Action("BlogPostDetails", new { item.Slug })">@item.Tag</a>
+                    }
+                </div>*@
+                <div id="images" class="tab-pane fade">
+                    <a href="#"><img src="http://placehold.it/110" alt=""></a> <a href="#"><img src="http://placehold.it/110" alt=""></a> <a href="#"><img src="http://placehold.it/110" alt=""></a> <a href="#"><img src="http://placehold.it/110" alt=""></a>
+                </div>
+                <div id="links" class="tab-pane fade">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class=""><a href="http://blog.codinghorror.com/" target="_blank">Coding Horror</a></li>
+                        <li class=""><a href="http://www.metaltoad.com/blog" target="_blank">Metal Toad</a></li>
+                        <li class=""><a href="http://programmers.stackexchange.com/questions/115269/i-am-not-a-good-programmer-in-logic-how-should-i-fix-it" target="_blank">Programmers.StackExchange</a></li>
+                        <li class=""><a href="http://www.dotnetperls.com/" target="_blank">Dot Net Perls</a></li>
+                        <li class=""><a href="https://dotnetfiddle.net/" target="_blank">.NET Fiddle</a></li>
+                        <li class=""><a href="http://coderbyte.com/" target="_blank">Coderbyte</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+}

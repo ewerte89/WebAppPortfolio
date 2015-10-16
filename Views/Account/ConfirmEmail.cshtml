@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Confirm Email";
+}
+
+<div class="bs-docs-section">
+    <h1 id="shortcodes" class="page-header"><i class="fa fa-envelope"></i> @ViewBag.Title </h1>
+</div><div>
+    <p>
+        Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+    </p>
+</div>

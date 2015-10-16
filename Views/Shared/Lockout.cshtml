@@ -1,0 +1,33 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Locked Out";
+}
+
+<div class="full_page_photo" style="top: 163px; background-image: url('../../Content/Images/View_Clipart/404.jpg');">
+    <div class="container">
+        <section class="call_to_action">
+            <h3 class="animated bounceInDown">
+                Chill out! <strong>You've made too many log-in attemps</strong>
+            </h3>
+            <h4 class="animated bounceInUp">please try to log in again in a few hours.</h4>
+        </section>
+    </div>
+</div>
+<div class="main" style="top: 563px;">
+    <section class="hgroup">
+        <div class="container">
+            <h1>Too many failed log-ins attempted</h1>
+            <ul class="breadcrumb pull-right">
+                <li class="active">Something went wrong!</li>
+            </ul>
+        </div>
+    </section>
+    <section class="call_to_action four-o-four">
+        <i class="fa fa-ambulance"></i>
+        <div class="container">
+            <h3>To guard against brute force attacks, you are limited to only 10 login attempts per session</h3>
+            <h4>Please come back in a few!</h4>
+        </div>
+    </section>
+</div>

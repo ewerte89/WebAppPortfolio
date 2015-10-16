@@ -1,0 +1,212 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<div class="bs-docs-section">
+    <h1 id="shortcodes" class="page-header"><i class="fa fa-user"></i> About Me </h1>
+    <section class="article-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <p class="column1">
+                        I am a junior C# .NET developer and designer with previous marketing, project management, web design, mobile app development, and software QA experience. If you would like, you can check out some of my prior work in these domains <a href="http://boulevarddigital.com/portfolio/">here</a> and <a href="http://www.agilx.com/our-work/">here</a>. Please visit my portfolio page to view my current work in Bootstrap and .NET. Peripheral to my development work; I enjoy nerding out on the history of computer science and programming language evolution. <a href="~/BlogPosts/BlogPostsIndex">Visit my blog</a> to view my posts on the topic.
+                        <br /><br /> You've probably guessed by now that I am an avid back-country hiker and wilderness photographer. I am always trying to find creative ways to apply the patterns that I observe when I'm out in the woods to my work. The images on this site were captured in South Dakato's Badlands National Park and Custer National Forest in south-central Montana.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<h1 id="shortcodes" class="page-header"><i class="fa fa-chevron-circle-right" name="projects"></i> Project Gallery </h1>
+<section>
+    <div class="container">
+        <ul class="portfolio_filters">
+            <li><a href="#" data-filter="*" class="active">show all</a></li>
+            <li><a href="#" data-filter=".cat_mvc">ASP.NET MVC</a></li>
+            <li><a href="#" data-filter=".cat_angular">Angular JS</a></li>
+        </ul>
+    </div>
+</section>
+<section class="portfolio_masonry">
+    <div class="container">
+        <div class="row isotope_portfolio_container isotope" style="position: relative; overflow: hidden; height: 1126px;">
+            <div class="cat_mvc col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(780px, 563px, 0px);">
+                <div class="portfolio_item">
+                    <a onclick="location.href = '@Url.Action("Portfolio", "Home")'">
+                        <img src="~/Content/Images/View_Clipart/bug.jpg" alt="Bug Tracker">
+                        <div class="overlay">
+                            <div class="desc">
+                                <i class="fa fa-external-link"></i>
+                                <h3>Bug Tracker</h3>
+                                <p>Error-logging application built in ASP.NET MVC</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="cat_angular col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(780px, 563px, 0px);">
+                <div class="portfolio_item">
+                    <a onclick="location.href = '@Url.Action("Portfolio", "Home")'">
+                        <img src="~/Content/Images/View_Clipart/wallet_money.JPG" alt="Personal Finance Manager">
+                        <div class="overlay">
+                            <div class="desc">
+                                <i class="fa fa-external-link"></i>
+                                <h3>Personal Finance Manager</h3>
+                                <p>Financial transactions log and accounts management application built in AngularJS & ASP.NET</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="cat_mvc col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(780px, 563px, 0px);">
+                <div class="portfolio_item">
+                    <a onclick="location.href = '@Url.Action("Portfolio", "Home")'">
+                        <img src="~/Content/Images/View_Clipart/hoopti.JPG" alt="Personal Finance Manager">
+                        <div class="overlay">
+                            <div class="desc">
+                                <i class="fa fa-external-link"></i>
+                                <h3>Car Finder</h3>
+                                <p>Auto retail search application with Bing search API</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+            <h1 id="shortcodes" class="page-header"><i class="fa fa-camera-retro"></i> <a name="photos" style="color:#333333">Photo Gallery </a></h1>
+            <section>
+                <div class="container">
+                    <ul class="portfolio_filters">
+                        <li><a href="#" data-filter="*" class="active">show all</a></li>
+                        <li><a href="#" data-filter=".cat_nature">nature photos</a></li>
+                        <li><a href="#" data-filter=".cat_weddings">wedding pics</a></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="portfolio_masonry">
+                <div class="container">
+                    <div class="row isotope_portfolio_container isotope" style="position: relative; overflow: hidden; height: 1126px;">
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/Landscapes/Tetons.jpg">
+                                    <img src="~/Content/Images/Landscapes/Tetons.jpg" alt="Grand Tetons">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/Landscapes/Walking_on_the_Moon.jpg">
+                                    <img src="~/Content/Images/Landscapes/Walking_on_the_Moon.jpg" alt="Badlands">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(780px, 0px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/Landscapes/Sunset_in_the_White_River_Valley.jpg">
+                                    <img src="~/Content/Images/Landscapes/Sunset_in_the_White_River_Valley.jpg" alt="Sunset on the White River Valley">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/Landscapes/Lake_Beautiful_Beartooth_Absaroka_Wilderness.jpg">
+                                    <img src="~/Content/Images/Landscapes/Lake_Beautiful_Beartooth_Absaroka_Wilderness.jpg" alt="Lake Beautiful">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/Landscapes/badlands_park.jpg">
+                                    <img src="~/Content/Images/Landscapes/badlands_park.jpg" alt="Badlands">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 266px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/Landscapes/beartooth_absaroka_wilderness.jpg">
+                                    <img src="~/Content/Images/Landscapes/beartooth_absaroka_wilderness.jpg" alt="Beartooth Absaroka Wilderness">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 529px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/Landscapes/Old_Rocks.jpg">
+                                    <img src="~/Content/Images/Landscapes/Old_Rocks.jpg" alt="Old-ass Rocks">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 529px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/Landscapes/Backcountry_Beartooth_Absaroka.jpg">
+                                    <img src="~/Content/Images/Landscapes/Backcountry_Beartooth_Absaroka.jpg" alt="Backcountry Beartooth">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 529px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/Landscapes/Fossil_Hunting.jpg">
+                                    <img src="~/Content/Images/Landscapes/Fossil_Hunting.jpg" alt="Fossil Hunting">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 529px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/Landscapes/custer_national_forest.jpg">
+                                    <img src="~/Content/Images/Landscapes/custer_national_forest.jpg" alt="Badlands Meadow Twilight">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 529px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/Landscapes/Meadow_Twilight_in_the_White_River_Valley.jpg">
+                                    <img src="~/Content/Images/Landscapes/Meadow_Twilight_in_the_White_River_Valley.jpg" alt="Badlands Meadow Twilight">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cat_nature col-sm-4 col-md-4 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 529px, 0px);">
+                            <div class="portfolio_item">
+                                <a class="prettyPhoto" href="~/Content/Images/View_Clipart/Coming Soon 1 (1024x768).jpg">
+                                    <img src="~/Content/Images/View_Clipart/Coming Soon 1 (1024x768).jpg" alt="River Crossing">
+                                    <div class="overlay">
+                                        <div class="desc"> <i class="fa fa-resize-full"></i> </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>

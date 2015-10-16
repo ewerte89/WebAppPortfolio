@@ -1,0 +1,244 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb# website:http://ogp.me/ns/website#">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,300italic" rel="stylesheet" type="text/css">
+    <meta charset="utf-8" />
+
+    <!--SITE TITLE AND OG PROTOCOLS-->
+    <title>@ViewBag.Title - Elliot Ewert C# .NET Developer</title>
+    <meta property="og:title" content="Elliot Ewert C# .NET Developer & Design Creative" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="https://elliotewert.com" />
+    <meta property="og:description" content="I am a full-stack developer and web application designer specializing in ASP.NET MVC and Bootstrap 3." />
+    <meta property="og:image" content="~/Content/images/landscapes/custer_national_forest.jpg" />
+
+    <!--DEVICE RENDER COMPATIBILITY-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--MODERNIZR BUNDLE-->
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!--BOOTSTRAP BUNDLE-->
+    @Styles.Render("~/Content/css")
+
+
+    <!--RESTART THEME CSS & FONTS-->
+    <link type="text/css" href="/Content/style.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/Fonts/FontAwesome/CSS/font-awesome.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/animate.css" rel="stylesheet" />
+    <link type="text/css" href="~/Scripts/ReStartTemplate/woothemes-FlexSlider-06b12f8/flexslider.css" rel="stylesheet" />
+    <link type="text/css" href="~/Scripts/ReStartTemplate/prettyPhoto_3.1.5/prettyPhoto.css" rel="stylesheet" />
+    <link type="image/x-icon" href="~/Content/favicon.ico" rel="shortcut icon" />
+
+    <!--SYNTAX HIGHLIGHTER-->
+    <link href="~/Content/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" />
+    <link href="~/Content/SyntaxHighlighter/shThemeDefault.css" rel="stylesheet" />
+
+    <!--CSS THEME OVERRIDES-->
+    <link type="text/css" href="~/Content/site.css" rel="stylesheet" />
+    <!--SELECTIVE RENDERS WITH RAZOR-->
+    @RenderSection("css", false)
+</head>
+
+    <!--NAVBAR & COLLAPSING HEADER-->
+    <body class="collapsing_header">
+        <header style="background-color:#FF8000">
+            <div class="container">
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                            <span class="logo_title" style="color:#ffffff; text-align:left"><strong>Elliot Ewert</strong></span> <span class="logo_subtitle" style="color:#ffffff; text-align:center">C# .NET DEVELOPER + DESIGNER</span>
+                        </a>
+                        <a class="btn btn-navbar btn-default navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="nb_left pull-left">
+                                <span class="fa fa-reorder"></span>
+                            </span>
+                            <span class="nb_right pull-right">menu</span>
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-right navbar-nav" style="background:#ff8000">
+                            <li class="@(ViewBag.Title == "Home" ? "active": "")">@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li class="@(ViewBag.Title == "About" ? "active": "")">@Html.ActionLink("About Me", "About", "Home")</li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">Projects<span class="caret" style="border-bottom-color:#fff; border-top-color:#fff"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("JavaScript Exercises", "Portfolio", "Home")</li>
+                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Bug Tracker", "Portfolio", "Home")</li>
+                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Personal Finance", "Portfolio", "Home")</li>
+                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Car Finder", "Portfolio", "Home")</li>
+                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Photography", "Portfolio", "Home")</li>
+                                </ul>
+                            </li>
+                            <li class="@(ViewBag.Title == "Résumé" ? "active" : "")">@Html.ActionLink("Résumé", "Résumé", "Home")</li>
+                            <li class="@(ViewBag.Title == "BlogPosts" ? "active" : "")">@Html.ActionLink("Blog", "BlogIndex", "BlogPosts")</li>
+                            <li class="@(ViewBag.Title == "Contact" ? "active" : "")">@Html.ActionLink("Contact", "Contact", "Contact")</li>
+                            <li class="@(ViewBag.Title == "BlogAdmin" ? "active" : "")">@Html.ActionLink("Admin", "BlogAdmin", "BlogPosts")</li>
+                        </ul>
+                    </div>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div id="username_crumb">
+                        <i class="fa fa-user" style="color: #ffffff">
+                            <span>
+                                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                            </span>
+                        </i>
+                    </div>
+                    <div id="logoff_crumb">
+                        <a href="@Url.Action("_LoginPartial", "Account")" style="color: #ffffff">
+                            <i class="fa fa-fire-extinguisher" style="color: #ffffff"></i><span>Log off</span>
+                        </a>
+                    </div>
+                    
+                }
+                else
+                {
+                <div id="sign"><a href="@Url.Action("Login", "Account")" style="color:#ffffff"><i class="fa fa-user" style="color:#ffffff"></i><span>Register/Sign in</span></a></div>
+                }
+                <div id="social_media_wrapper">
+                    <a href="https://www.linkedin.com/in/elliotewert" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+                    <a href="http://careers.stackoverflow.com/elliotewert" target="_blank"><i class="fa fa-stack-overflow"></i></a>
+                    <a href="https://github.com/ewerte89" target="_blank"><i class="fa fa-github-square" target="_blank"></i></a>
+                </div>
+            </div>
+        </header>
+
+        @if (ViewBag.title == "Home")
+        {
+        <!--FLEXSLIDER-->
+            <section id="slider_wrapper" class="slider_wrapper full_page_photo">
+                <div id="main_flexslider" class="flexslider">
+                    <ul class="slides">
+                        <li class="item" style="background-image: url('../../Content/images/landscapes/custer_national_forest.jpg');">
+                            <div class="container" align="center">
+                                <div class="carousel-caption">
+                                    <h1>
+                                        I am a <strong>developer & designer</strong> specializing in
+                                        <strong> Bootstrap</strong> & <strong>C# ASP.NET MVC</strong> technologies
+                                    </h1>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item" style="background-image: url('../../Content/images/landscapes/Lake_Beautiful_Beartooth_Absaroka_Wilderness.jpg')">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1>
+                                        I design and deploy websites and <strong> secure web apps </strong>
+                                        using Microsoft's powerful <strong>Visual Studio</strong> IDE and hosting through <strong>Windows Azure</strong>.
+                                    </h1>
+                                    <p class="lead skincolored">I design all of my own original app collateral in Photoshop. All site images credit: Elliot Ewert</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item" style="background-image: url('../../Content/images/landscapes/badlands_park.jpg')">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1>
+                                        <a href="~/Home/Portfolio"><strong>View my portfolio</strong></a> for an in-depth look
+                                        at some of my <strong>best work</strong>
+                                    </h1>
+                                    <p class="lead">
+                                        If you have questions or like what you see <a href="~/Contact/Contact"><strong>don't hesitate to contact me!</strong></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        }
+        <div class="main" style="top:163px">
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+            </div>
+
+            <!--THEME FOOTER-->
+            <footer>
+                <section id="footer_teasers_wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="footer_teaser col-sm-4 col-md-4">
+                                <h3 style="color:#ffffff">Contact</h3>
+                                <p>Please initiate introductions via <a href="https://www.linkedin.com/in/elliotewert" style="color:#ffffff"><strong>LinkedIn</strong></a>, <a href="mailto:elliot.ewert@gmail.com" style="color:#ffffff"><strong>email</strong></a>, or the <a href="~/Contact/Contact" style="color:#ffffff"><strong>contact form on this website.</strong></a></p>
+                                <p><i class="fa fa-map-marker"></i> #5 Shields Road</p>
+                                <p><i class="fa fa-building"></i> Kernersville, NC 27284</p>
+                                <p><i class="fa fa-phone"></i> (617) 821-0388</p>
+                                <p><i class="fa fa-envelope"></i> <a href="mailto:elliot.ewert@gmail.com" style="color:#ffffff"><strong>elliot.ewert@gmail.com</strong></a></p>
+                            </div>
+                            <div class="footer_teaser col-sm-4 col-md-4">
+                                @Html.Action("BlogFooterFeed", "BlogPosts")
+                            </div>
+                            @Html.Action("PhotoFooterFeed", "BlogPosts")
+                        </div>
+                    </div>
+                </section>
+                <section class="copyright" style="color:#ffffff">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">© @DateTime.Now.Year all rights reserved </div>
+                            <div class="text-right col-sm-6 col-md-6"> Designed by <a href="http://www.elliotewert.com" style="color:#ffffff"><strong>Elliot Ewert</strong></a> </div>
+                        </div>
+                    </div>
+                </section>
+            </footer>
+        </div>
+
+        @*==============================================
+                  SCRIPTS
+        ============================================== *@
+
+        <!--SCRIPTS BUNDLES-->
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/unobtrusive")
+        @RenderSection("scripts", required: false)
+
+        <!--RESTART TEMPLATE JS-->
+        <script type="text/javascript" src="~/Scripts/ReStartTemplate/woothemes-FlexSlider-06b12f8/jquery.flexslider-min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="~/Scripts/ReStartTemplate/prettyPhoto_3.1.5/jquery.prettyPhoto.js"></script>
+        <script type="text/javascript" src="~/Scripts/ReStartTemplate/isotope/jquery.isotope.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/ReStartTemplate/jquery.ui.totop.js"></script>
+        <script type="text/javascript" src="~/Scripts/ReStartTemplate/easing.js"></script>
+        <script type="text/javascript" src="~/Scripts/ReStartTemplate/wow.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/ReStartTemplate/snap.svg-min.js"></script>
+        <script type="text/javascript" src="~/Scripts/ReStartTemplate/restart_theme.js"></script>
+        <script type="text/javascript" src="~/Scripts/ReStartTemplate/snap.svg-min.js"></script>
+        <script type="text/javascript" src="~/Scripts/ReStartTemplate/parallax.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/ReStartTemplate/collapser.js"></script>
+
+        <!--SYNTAX HIGHLIGHTER-->
+        <script src="~/Scripts/SyntaxHighlighter/scripts/shCore.js"></script>
+        <script src="~/Scripts/SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+        <script type="text/javascript">SyntaxHighlighter.all()</script>
+    </body>
+</html>
+
+@*___
+          _.-'   ```'--.._                 _____ ___ ___   ____  _____ __ __      ______  __ __    ___
+        .'                `-._            / ___/|   |   | /    |/ ___/|  |  |    |      ||  |  |  /  _]
+       /                      `.         (   \_ | _   _ ||  o  (   \_ |  |  |    |      ||  |  | /  [_
+      /                         `.        \__  ||  \_/  ||     |\__  ||  _  |    |_|  |_||  _  ||    _]
+     /                            `.      /  \ ||   |   ||  _  |/  \ ||  |  |      |  |  |  |  ||   [_
+    :       (                       \     \    ||   |   ||  |  |\    ||  |  |      |  |  |  |  ||     |
+    |    (   \_                  )   `.    \___||___|___||__|__| \___||__|__|      |__|  |__|__||_____|
+    |     \__/ '.               /  )  ;
+    |   (___:    \            _/__/   ;    ____   ____  ______  ____   ____   ____  ____      __  __ __  __ __
+    :       | _  ;          .'   |__) :   |    \ /    ||      ||    \ |    | /    ||    \    /  ]|  |  ||  |  |
+     :      |` \ |         /     /   /    |  o  )  o  ||      ||  D  ) |  | |  o  ||  D  )  /  / |  |  ||  |  |
+      \     |_  ;|        /`\   /   /     |   _/|     ||_|  |_||    /  |  | |     ||    /  /  /  |  _  ||  ~  |
+       \    ; ) :|       ;_  ; /   /      |  |  |  _  |  |  |  |    \  |  | |  _  ||    \ /   \_ |  |  ||___, |
+        \_  .-''-.       | ) :/   /       |  |  |  |  |  |  |  |  .  \ |  | |  |  ||  .  \\     ||  |  ||     |
+       .-         `      .--.'   /        |__|  |__|__|  |__|  |__|\_||____||__|__||__|\_| \____||__|__||____/
+      :         _.----._     `  <
+      :       -'........'-       `.
+       `.        `''''`           ;
+         `'-.__                  ,'
+               ``--.   :'-------'
+                   :   :
+                  .'   '.*@

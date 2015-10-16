@@ -1,0 +1,69 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model PagedList<WebAppPortfolio.Models.BlogPosts>
+@{
+    ViewBag.Title = "BlogIndex";
+}
+
+@section css {
+    <!-- PAGEDLIST -->
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+
+<div class="bs-docs-section">
+    <h1 id="shortcodes" class="page-header"><i class="fa fa-lightbulb-o"></i> Blog </h1>
+</div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div id="leftcol" class="col-sm-8 col-md-8">
+                @foreach (var item in Model)
+                {
+                    <article class="post">
+                        <div class="post_header">
+                            <h3 class="post_title">
+                                <a href="@Url.Action( "BlogPostDetails", new { item.Slug })">@item.Title</a>
+                            </h3>
+                            <div class="post_sub">
+                                <i class="@Url.Action( "BlogPostDetails", new { item.Slug })"></i>
+                                @item.Created.DateTime.ToLongDateString()
+                            </div>
+                        </div>
+
+                        @if (item.MediaURL != null)
+                        {
+                            <div class="post_content">
+                                <figure><img class="img-responsive" src="@item.MediaURL" /></figure>
+                            </div>
+                        }
+
+                        @if (item.Body != null)
+                        {
+                            <div class="post_content">
+                                <div id="wrapper">@Html.Raw(item.Body)</div>
+                                <a href="@Url.Action( "BlogPostDetails", new { item.Slug })" class="btn btn-primary">Read More</a>
+                            </div>
+                        }
+                    </article>
+                }
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of  @Model.PageCount
+                @Html.PagedListPager(Model, page => Url.Action("BlogIndex", new { page }))
+            </div>
+            @Html.Action("BlogSidebarWidget", "BlogPosts")
+        </div>
+    </div>
+</section>
+
+@section scripts {
+<script src="~/Scripts/BlogLayout/DotDotDot/jquery.dotdotdot.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#wrapper").dotdotdot({
+                ellipsis: '...',
+                height: 50,
+                wrap: 'word'
+            });
+        });
+    </script>
+}

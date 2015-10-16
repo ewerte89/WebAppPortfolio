@@ -1,0 +1,770 @@
+﻿@{
+    ViewBag.Title = "Portfolio";
+}
+<!--Advanced JS-->
+<script src="~/Scripts/JavaScriptExercises/findLongestWord.js"></script>
+<script src="~/Scripts/JavaScriptExercises/filterLongestWord.js"></script>
+<script src="~/Scripts/JavaScriptExercises/wordFreq.js"></script>
+<script src="~/Scripts/JavaScriptExercises/findWord.js"></script>
+
+<div class="bs-docs-section">
+    <h1 id="shortcodes" class="page-header"><i class="fa fa-code"></i> JavaScript Exercises </h1>
+</div>
+<br />
+<!--Butons-->
+<div class="row">
+    <!--Button trigger Factorial modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#factorial">Factorial</button>
+    </div>
+    <!--Button trigger FizzBuzz modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#fizzbuzz">FizzBuzz</button>
+    </div>
+    <!--Button trigger Find Word modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#findword">Find Word</button>
+    </div>
+    <!--Button trigger Sum & Multiply modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#summultiply">Sum & Multiply</button>
+    </div>
+    <!--Button trigger Perfect Numbers modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#perfectnumber">Perfect Numbers</button>
+    </div>
+    <!--Button trigger Find Longest Word modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#findlongestword">Find Longest Word</button>
+    </div>
+    <!--Button trigger Palindrome modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#palindrome">Palindrome String</button>
+    </div>
+    <!--Button trigger Armstrong Numbers modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#armstrongnumber">Armstrong Numbers</button>
+    </div>
+    <!--Button trigger Filter Longest Word modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#filterlongestword">Filter Longest Words</button>
+    </div>
+    <!--Button trigger Max of Five modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#max">Max of Five</button>
+    </div>
+    <!--Button trigger Happy Numbers modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#happynumber">Happy Numbers</button>
+    </div>
+    <!--Button trigger Word Frequency modal-->
+    <div class="col-md-4" align="center" style="padding-bottom:15px">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#wordfrequency">Word Frequency</button>
+    </div>
+</div>
+
+<!--Modals-->
+<!--Max of Five Modal-->
+<!--Max of Five Modal-->
+<!--Max of Five Modal-->
+<div class="modal fade" id="max" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Max of Five</h1>
+                <h4>This function accepts five numbers as arguments and returns the largest.</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h4>Enter a list of numbers:</h4>
+                        <p>
+                            <div class="row">
+                                <input type="number" id="p1" maxlength="1" size="1" align="left">
+                            </div>
+                            <div class="row">
+                                <input type="number" id="p2" maxlength="1" size="1" align="left">
+                            </div>
+                            <div class="row">
+                                <input type="number" id="p3" maxlength="1" size="1" align="left">
+                            </div>
+                            <div class="row">
+                                <input type="number" id="p4" maxlength="1" size="1" align="left">
+                            </div>
+                            <div class="row">
+                                <input type="number" id="p5" maxlength="1" size="1" align="left">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Find the Max:</h4>
+                        <br />
+                        <p>
+                            <button class="btn btn-primary btn-lg" style="padding:15px; border-radius:15px" onclick="maxOfFive()">Click me!</button>
+                        </p>
+                        <h4 class="" id="maxOutput">?</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function maxOfFive() {
+    var result=Math.max($('#p1').val(),
+                        $('#p2').val(),
+                        $('#p3').val(),
+                        $('#p4').val(),
+                        $('#p5').val())
+    $('#maxOutput').text(result);
+}
+                    </pre>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Sum and Multiply Modal-->
+<!--Sum and Multiply Modal-->
+<!--Sum and MultiplyModal -->
+<div class="modal fade" id="summultiply" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Sum and Multiply Functions</h1>
+                <h4>These two functions accept a list of numbers.</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Enter a list of numbers, separated by commas:</h4>
+                        <p>
+                            <input type="text" id="inputNum" maxlength="30" size="30">
+                        </p>
+                        <h4>Find the Sum & Product:</h4>
+                        <br />
+                        <p>
+                            <button class="btn btn-primary btn-lg" style="padding:15px; border-radius:15px" onclick="inputArr()">Click me!</button>
+                        </p>
+                        <h4 class="" id="sum">?</h4>
+                        <h4 class="" id="multiply">?</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function inputArr() {
+    var sumAndMultArr = [];
+    sumAndMultArr = document.getElementById("inputNum").value.match(/-?\d+/g);
+    console.log(sumAndMultArr);
+    sum(sumAndMultArr);
+    multiply(sumAndMultArr);
+}
+function sum(sumAndMultArr) {
+    var total = 0;
+    for (var i = 0; i < sumAndMultArr.length; i++) {
+        total += Number(sumAndMultArr[i]);
+    }
+    $("#sum").html(total);
+};
+function multiply(sumAndMultArr) {
+    var total = 1;
+    for (var i = 0; i < sumAndMultArr.length; i++) {
+        total *= sumAndMultArr[i];
+    }
+    $("#multiply").html(total);
+};
+                        </pre>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Factorial Modal-->
+<!--Factorial Modal-->
+<!--Factorial Modal-->
+<div class="modal fade" id="factorial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Factorials</h1>
+                <h4>This function accepts a number and returns its factorial.</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Enter an integer:</h4>
+                        <p>
+                            <input type="text" id="factorialNumber" maxlength="4" size="4">
+                        </p>
+                        <h4>Calculate the Factorial:</h4>
+                        <p>
+                            <button class="btn btn-primary btn-lg" style="padding:15px; border-radius:15px" onclick="inputNum()">Click me!</button>
+                        </p>
+                        <h4 class="" id="factorialReturn">?</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function inputNum() {
+    var num = document.getElementById("factorialNumber").value;
+    console.log(num);
+    factoCalc(num);
+}
+    function factoCalc(num) {
+        var total = 1;
+        for (var i = 2; i <= num; i++)
+            total *= i;
+   
+    $("#factorialReturn").html(total);
+}
+                        </pre>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Palindrome Modal-->
+<!--Palindrome Modal-->
+<!--Palindrome Modal-->
+<div class="modal fade" id="palindrome" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Palindrome Function</h1>
+                <h4>This function accepts a word or sentence and checks to see if it is reversable.</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Enter some character strings:</h4>
+                        <p>
+                            <textarea id="inputStr" rows="4" cols="50"></textarea>
+                        </p>
+                        <h4>Parse the String:</h4>
+                        <p>
+                            <button class="btn btn-primary btn-lg" style="padding:15px; border-radius:15px" onclick="palindromeInput()">Click me!</button>
+                        </p>
+                        <h4 class="" id="palReturn">?</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function palindromeInput() {
+    var palindrome = document.getElementById("inputStr").value;
+    console.log(palindrome);
+    palEval(palindrome);
+}
+function palEval(palindrome) {
+    console.log(palindrome);
+    palindrome = palindrome.replace(/[^0-9A-Za-z]*/g, '').toLowerCase();
+    console.log(palindrome);
+    var wordLen = palindrome.length;                                           
+    for (var i = 0; i < wordLen / 2; i++) {
+        console.log(palindrome.charAt(i) + "   " + palindrome.charAt(wordLen - 1 - i));
+        if (palindrome.charAt(i) !== palindrome.charAt(wordLen - 1 - i)) {
+            $("#palReturn").html("Sorry, that's not a palindrome.");
+            return;
+        }                                                                           
+            
+    }
+    $("#palReturn").html("You've got a palindrome!");
+}
+                        </pre>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--FizzBuzz Modal-->
+<!--FizzBuzz Modal-->
+<!--FizzBuzz Modal-->
+<div class="modal fade" id="fizzbuzz" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Fizz Buzz Function</h1>
+                <h4>This program counts from from 1 to 100, printing the numbers to the screen. For each number that is a multiple of three, however, it prints "Fizz" instead of the number. For multiples of five it prints "Buzz" instead of the number. For numbers that are multiples of both three and five it prints "FizzBuzz."</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>FizzBuzz</h4>
+                        <br />
+                        <p>
+                            <button class="btn btn-primary btn-lg" style="padding:15px; border-radius:15px" onclick="fizzBuzz()">Click me!</button>
+                        </p>
+                        <h4 class="" id="fizzOut">?</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function fizzBuzz () {
+    var result = "";
+    for (i = 1; i <= 100; i++) {
+        if (i % 3 == 0) {
+            result +="Fizz<br>";
+        } else if (i % 5 == 0) {
+            result +="Buzz<br>";
+        } else if (i % 3 == 0 && i % 5 == 0) {
+            result += "FizzBuzz<br>";
+        } else
+            result += i + "<br>";
+    }
+    $('#fizzOut').html(result);
+};
+                        </pre>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Perfect Number Modal-->
+<!--Perfect Number Modal-->
+<!--Perfect Number Modal-->
+<div class="modal fade" id="perfectnumber" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Calculating Perfect Numbers</h1>
+                <h4>This function evaluates a number to see if it is a perfect number.</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Enter a number:</h4>
+                        <p>
+                            <input type="text" id="isPerfNum" maxlength="4" size="4">
+                        </p>
+                        <br />
+                        <h4>Evaluate for Perfection:</h4>
+                        <br />
+                        <p>
+                            <button class="btn btn-primary btn-lg" style="padding:15px; border-radius:15px" onclick="inputPerfNum()">Am I Perfect?</button>
+                        </p>
+                        <h4 class="" id="perfNumOutput">?</h4>
+                        <br />
+                        <p>
+                            <button class="btn btn-primary btn-lg" style="padding:15px; border-radius:15px" onclick="Run(); perfNum10k()">List Perfect Numbers</button>
+                        </p>
+                        <h4 class="" id="perfNum10k">?</h4>
+                        <h4 class="" id="delayMessage">Loading...</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function inputPerfNum() {
+    var num = document.getElementById("isPerfNum").value;
+    console.log(num);
+    $("#perfNumOutput").html((perfNum(num) ? "Perfect" : "Imperfect"))
+}
+function perfNum(num) {
+    var perfArray = [];
+    var sum = 0;
+    for (var i = (num / 2) ; i > 0; i--) {
+        if (num % i == 0) {
+            perfArray.push(i);
+        }
+    }
+    for (var i = 0 ; i < perfArray.length ; i++) {
+        sum += perfArray[i];
+        console.log(perfArray[i]);
+    }
+    if (sum == num) {
+        return true;
+    } else
+        return false;
+}
+function perfNum10k() {
+    var numList = "";
+    for (var i = 1; i < 10000; i++) {
+        if (perfNum(i)) {
+            numList += i + ', ';
+        }
+    }
+    console.log(numList);
+    $('#perfNum10k').html(numList);
+}
+                        </pre>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Happy Number Modal-->
+<!--Happy Number Modal-->
+<!--Happy Number Modal-->
+<div class="modal fade" id="happynumber" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Happy Numbers</h1>
+                <h4>This function lists the first five happy numbers.</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>List Happy:</h4>
+                        <br />
+                        <p>
+                            <button class="btn btn-primary btn-lg" style="padding:15px; border-radius:15px" onclick="happyNums()">Click me!</button>
+                        </p>
+                        <h4 class="" id="happyOutput">?</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function happyNums () {
+    var result = "";
+    var happy = 0;
+    var i = 0;
+    do {
+        i++
+        if (isHappy(i)) {
+            happy++
+            result += (i + "<br>");
+        }
+    } while (happy < 5);
+}
+function happyNums () {
+    var result = "";
+    var happy = 0;
+    var i = 0;
+    do {
+        i++
+        if (isHappy(i)) {
+            happy++
+            result += (i + "<br>");
+        }
+    }
+    while (happy < 5);
+    $('#happyOutput').html(result);
+};
+isHappy = function (num) {
+    var str = num.toString();
+    var digits = str.split("");
+    var sumOfDigitsSquared = 0;
+    for (var j in digits) {
+        sumOfDigitsSquared = Math.pow(digits[j], 2) + sumOfDigitsSquared;
+    };
+    if (sumOfDigitsSquared == 1) {
+        return (true);
+    } else if (sumOfDigitsSquared == 4) { // detect loop
+        return (false);
+    } else
+        return (isHappy(sumOfDigitsSquared));
+};
+                        </pre>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Armstrong Number Modal-->
+<!--Armstrong Number Modal-->
+<!--Armstrong Number Modal-->
+<div class="modal fade" id="armstrongnumber" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Finding Armstrong Numbers</h1>
+                <h4>This function lists all 3-digit armstrong numbers.</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>List Armstrong</h4>
+                        <br />
+                        <p>
+                            <button class="btn btn-primary btn-lg" style="padding:15px; border-radius:15px" onclick="armstrongNums()">Click me!</button>
+                        </p>
+                        <h4 class="" id="armstrongOutput">?</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function armstrongNums() {
+    var result = "";
+    var hits = 0;
+    var i = 99;
+    for (var i = 100; i <= 999; i++) {
+        if (isArmstrong(i)) {
+            result += (i + "<br>");
+        }
+    }
+    $('#armstrongOutput').html(result);
+};
+function isArmstrong(n1) {
+    var str = n1.toString();
+    var digits = str.split("");
+    var sumOfDigitsRaised = 0;
+    for (var j in digits) {
+        sumOfDigitsRaised = Math.pow(digits[j], digits.length) + sumOfDigitsRaised;
+    }
+    if (sumOfDigitsRaised == n1) {
+        return (true);
+    } else
+        return (false);
+};
+                        </pre>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Find Longest Word Modal-->
+<!--Find Longest Word Modal-->
+<!--Find Longest Word Modal-->
+<div class="modal fade" id="findlongestword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Find Longest Word</h1>
+                <h4>This function parses a document file to find the longest word contained therein.</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Upload Document</h4>
+                        <p>
+                            <input type="file" id="fileinput2" />
+                            <script align="center">document.getElementById("fileinput2").addEventListener("change", longestWord, false);</script><br />
+                        </p>
+                        <h4 class="" id="longestWordResult">?</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function longestWord () {
+        var input = $('#textfile4')[0];
+        var reader = new FileReader();
+        reader.onload = function () {
+            $("#longestWordResult").html("The longest word is:" + findLongestWord(reader.result));
+        }
+        reader.readAsText(input.files[0]);
+    };
+    function findLongestWord(str) {
+        var array1 = str.match(/\w[a-z]{0,}/gi);
+        var result = array1[0];
+        for (var x = 1; x < array1.length; x++) {
+            if (result.length < array1[x].length) {
+                result = array1[x];
+            }
+        }
+        return result;
+    };
+                        </pre>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Filter Longest Word Modal-->
+<!--Filter Longest Word Modal-->
+<!--Filter Longest Word Modal-->
+<div class="modal fade" id="filterlongestword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Filter Longest Word</h1>
+                <h4>This function finds and displays all words in a document file that are a given length or longer.</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Filter words longer than:</h4>
+                        <br />
+                        <br />
+                        <p>
+                            <input type="text" id="inputLengthValue" size="2"><br />
+                            <input type="file" id="fileinput3" />
+                            <script align="center">document.getElementById("fileinput3").addEventListener("change", filterWords, false);</script><br />
+                        </p>
+                        <h4 class="" id="filterWordResult">?</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function task25 (n1) {
+        var input = $('#textfile5')[0];
+        var reader = new FileReader();
+        reader.onload = function () {
+            $("#filterLongestWordsResult").html(filterLongestWords(n1, reader.result));
+        };
+        reader.readAsText(input.files[0]);
+    };
+    function filterLongestWords(n1, str) {
+        var array1 = str.toLowerCase().match(/\w[a-z]{0,}/gi).sort();
+        var result = "Words longer than " + n1 + " characters:";
+        for (var x = 1; x < array1.length; x++) {
+            if (n1 < array1[x].length) {
+                if (array1[x] == array1[x - 1]) { continue }
+                result = result + "  " + array1[x];
+            }
+        }
+        return result;
+    };
+                        </pre>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Word Frequency Modal-->
+<!--Word Frequency Modal-->
+<!--Word Frequency Modal-->
+<div class="modal fade" id="wordfrequency" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Word Frequency Function</h1>
+                <h4>This function parses a document file and displays the frequency of a given word.</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Parse Frequency</h4>
+                        <br />
+                        <p>
+                            <input type="file" id="fileinput" />
+                            <script align="center">document.getElementById("fileinput").addEventListener("change", wordFreq, false);</script><br />
+                        </p>
+                        <h4 class="" id="wordFreqResult">?</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function wordFreq(evt) {
+    var input = evt.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function () {
+        var strr = reader.result;
+        $("#wordFreqResult").html(findWordFreq(strr));
+    };
+    reader.readAsText(input);
+};
+function findWordFreq(str) {            //load words in document into array 
+    var array1 = str.split(/[\s,()']+/);
+    var obj1 = {};
+    for (var i in array1) {             //iterate through array counting words
+        if (obj1[array1[i]] == null) {  // have we seen this word ?
+            (obj1[array1[i]]) = 1       // if no, count the first sighting
+        } else {
+            (obj1[array1[i]])++         // if yes, increment the count
+        }
+    };
+    var array2 = [];
+    for (var i in obj1) {               //put results back into an array
+        array2.push([i, obj1[i]]);
+    };
+    array2.sort(function (a, b) {        //sort by count (rank)
+        return b[1] - a[1]
+    });
+    var result = "Word/Count: <ul>";         //write an output string
+    for (var i in array2) {
+        result = result + "<li>" + array2[i] + "</li>";
+    }
+    result = result + "</ul>"
+    return result;
+};
+                        </pre>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Find Word Modal-->
+<!--Find Word Modal-->
+<!--Find Word Modal-->
+<div class="modal fade" id="findword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
+    <div class="modal-dialog-lg" role="document" style="width:80%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title" id="myModalLabel">Find Word</h1>
+                <h4>This function finds and counts the number of instances of a given word in a document file.</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Find Word:</h4>
+                        <br />
+                        <p>
+                            <input type="text" id="searchString" size="2"><br />
+                            <input type="file" id="fileinput1" />
+                            <script align="center">document.getElementById("fileinput1").addEventListener("change", findWord, false);</script><br />
+                        </p>
+                        <h4 class="" id="findWordResult">?</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>View the code:</h4>
+                        <pre class="brush: js">
+function findWord(evt) {
+    var input = evt.target.files[0];
+    var reader = new FileReader();
+    var searchString = document.getElementById("searchString").value;
+    console.log("the search string is : " + searchString);
+    reader.onload = function () {
+        var str = reader.result;
+        $("#findWordResult").html("Counted:" + countAWord(searchString, str));
+    };
+    reader.readAsText(input);
+};
+function countAWord(searchString, str) {
+    var array1 = str.split(/[\s,()']/);
+    console.log(array1);
+    var result = 0;
+    for (var x in array1) {
+        if (searchString === array1[x]) {
+            result++;
+        }
+    }
+    return result;
+};
+                          </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script src="~/Scripts/JavaScriptExercises/maxOfFive.js"></script>
+    <script src="~/Scripts/JavaScriptExercises/sumAndMultiply.js"></script>
+    <script src="~/Scripts/JavaScriptExercises/factorial.js"></script>
+    <script src="~/Scripts/JavaScriptExercises/palindrome.js"></script>
+    <script src="~/Scripts/JavaScriptExercises/fizzBuzz.js"></script>
+    <script src="~/Scripts/JavaScriptExercises/perfect.js"></script>
+    <script src="~/Scripts/JavaScriptExercises/happyNumbers.js"></script>
+    <script src="~/Scripts/JavaScriptExercises/armstrongNumbers.js"></script>
+}
