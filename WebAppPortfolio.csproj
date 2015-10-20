@@ -809,6 +809,8 @@
     <Content Include="Scripts\TinyMCE\skins\lightgray\fonts\tinymce.json" />
     <Content Include="Scripts\TinyMCE\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\TinyMCE\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Views\BlogPosts\BlogComments\_EditComment.cshtml" />
+    <Content Include="Views\BlogPosts\BlogComments\_DeleteComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

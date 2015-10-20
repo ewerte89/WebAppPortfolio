@@ -158,6 +158,10 @@ namespace WebAppPortfolio.Controllers
         }
 
 
+        // ==============================================
+        //  BLOG POST EDIT VIEW
+        // ============================================== 
+
         // GET: BlogPosts/Edit/5
         public ActionResult BlogPostEdit(int? id)
         {
@@ -188,6 +192,10 @@ namespace WebAppPortfolio.Controllers
             }
             return View(blogPost);
         }
+
+        // ==============================================
+        //  BLOG POST DELETE VIEW
+        // ============================================== 
 
         // GET: BlogPosts/Delete/5
         public ActionResult BlogPostDelete(int? id)
@@ -224,6 +232,10 @@ namespace WebAppPortfolio.Controllers
             base.Dispose(disposing);
         }
 
+        // ==============================================
+        //  COMMENT CREATE VIEW
+        // ============================================== 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateComment([Bind(Include = "Id,Message,Username,DatePosted,BlogPosts,ParentId,ParentComment")]Comment comment, string Slug)
@@ -238,6 +250,10 @@ namespace WebAppPortfolio.Controllers
             }
             return View(comment);
         }
+
+        // ==============================================
+        //  COMMENT EDIT VIEW
+        // ============================================== 
 
         //GET Comments/Edit
         public ActionResult EditComment(int? id)
@@ -285,6 +301,10 @@ namespace WebAppPortfolio.Controllers
             }
             return View(comment);
         }
+
+        // ==============================================
+        //  COMMENT DELETE VIEW
+        // ============================================== 
 
         [HttpPost, ActionName("DeleteComment")]
         [ValidateAntiForgeryToken]

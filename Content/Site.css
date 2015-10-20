@@ -162,6 +162,21 @@ a:hover, a:focus {
 }
 
 /*Social Media Wrapper*/
+.spacing #social_media_wrapper {
+    position: relative;
+    background: #ffffff;
+}
+
+.spacing #social_media_wrapper a {
+    color: #428bca;
+}
+.spacing #social_media_wrapper a:hover,
+.spacing #social_media_wrapper a:active {
+  text-decoration: none;
+  color: #fff;
+  background: #428bca;
+}
+
 #social_media_wrapper {
   background: #ff8000;
   border-bottom-right-radius: 4px;
@@ -238,4 +253,53 @@ a:hover, a:focus {
     -webkit-transition-delay: 0.05s;
     color: #fff;
     font-weight: 400;
+}
+
+/*Social Logins*/
+.social_sign button {
+    text-align: center;
+    display: inline-block;
+    margin: 0 8px;
+    border: 0px;
+    border-radius: 50%;
+    font-size: 30px;
+    width: 66px;
+    height: 66px;
+    line-height: 30px;
+    padding: 18px;
+    /*-webkit-transition: all 100ms linear;*/
+    -o-transition: all 100ms linear;
+    transition: all 100ms linear;
+}
+
+.social_sign button:hover {
+    transform: scale(1.1) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+}
+
+.social_sign button:link, .social_sign button:visited {
+    color: #ffffff;
+}
+
+.social_sign button:hover {
+    color: #ffffff;
+}
+
+.social_sign button.Facebook {
+    background-color: #3B5998;
+}
+
+.fa-Facebook:before {
+  content: "\f09a";
+}
+
+.social_sign button.Google {
+    background-color: #E44B39;
+}
+
+.fa-Google:before {
+  content: "\f0d5";
+}
+
+.social_sign button.Twitter {
+    background-color: #00ACEE;
 }

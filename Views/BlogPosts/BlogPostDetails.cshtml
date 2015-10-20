@@ -1,4 +1,5 @@
-﻿@model WebAppPortfolio.Models.BlogPosts
+﻿@using Microsoft.AspNet.Identity
+@model WebAppPortfolio.Models.BlogPosts
 
 @{
     ViewBag.Title = "BlogPostDetails";
@@ -13,77 +14,107 @@
     </h1>
 </div>
 <div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Created)
-        </dt>
+    <input type="button" class="btn btn-primary" value="Return to Blog Roll" onclick="location.href='@Url.Action("BlogIndex")'">
+</div>
+<br/>
+<br/>
+<div>
+@if (Model.MediaURL != null)
+{
+    <p><img class="img-responsive dMediaUrl" src="@Model.MediaURL" alt=""></p>
+            <hr />
+}
 
-        <dd>
-            @Html.DisplayFor(model => model.Created)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Updated)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Updated)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Slug)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Slug)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Body)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Body)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MediaURL)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MediaURL)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Published)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Published)
-        </dd>
-    </dl>
-
-    @if (User.Identity.IsAuthenticated)
+<p>
+    <csmall>Posted: @Html.DisplayFor(model => model.Created)</csmall> |
+    @if (Model.Updated != null)
+            {
+        <csmall>Updated: @Html.DisplayFor(model => model.Updated)</csmall> <span>|</span>
+    }
+    <csmall2>By: Elliot Ewert</csmall2>
+    @if (Model.Category != null)
+    {
+        <span>|</span> <csmall>Category: @Html.DisplayFor(model => model.Category)</csmall>
+    }
+</p>
+<p>@Html.Raw(Model.Body)</p>
+    <div class="spacing">
+        <div id="social_media_wrapper">
+            <a href="http://www.facebook.com.com/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+            <a href="http://www.twitter.com/" target="_blank"><i class="fa fa-retweet"></i></a>
+            <a href="http://www.googleplus.com/" target="_blank"><i class="fa fa-google-plus-square"></i></a>
+            <a href="http://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+            <a href="http://www.tumblr.com" target="_blank"><i class="fa fa-tumblr-square"></i></a>
+            <a href="http://www.pinterest.com" target="_blank"><i class="fa fa-pinterest-square" target="_blank"></i></a>
+        </div>
+    </div>
+@if (User.Identity.IsAuthenticated)
+{
+    //using (Html.BeginForm())
+    //{
+    <div>
+        <h4>Leave a comment.</h4>
+        <div class="hline"></div>
+        <form action="@Url.Action("CreateComment")" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="Slug" value="@Model.Slug" />
+            <textarea name="Body" placeholder="Your Comment Here..." id="comment"></textarea>
+            <input type="hidden" name="PostID" value="@Model.Id" />
+            <br/>
+            <br />
+            <br />
+            <input type="submit" value="Post Comment" class="btn btn-primary" />
+        </form>
+        <div class="bs-docs-section">
+            <h4 id="shortcodes" class="page-header">
+                <i class="fa fa-lightbulb-o"></i> Comments about "@Html.DisplayFor(model => model.Title)"
+            </h4>
+        </div>        <div class="hline"></div>
+        <br />
+    </div>
+    //}
+}
+@foreach (var item in Model.Comments)
+            {
+    <div class="commentContainer">
+        <p>
+            @if (item.Username == null)
+            {
+                <csmall>By: Anonymous</csmall><span>|</span>
+            }
+            else
+            {
+                <csmall>By: @Html.DisplayFor(modelItem => item.Username)</csmall><span>|</span>
+            }
+            <csmall>Date: @Html.DisplayFor(modelItem => item.DatePosted)</csmall>
+            @if (item.Edited != null)
+            {
+                <span>|</span><csmall>Updated: @Html.DisplayFor(modelItem => item.Edited)</csmall>
+            }
+        </p>
+        <div>
+            @Html.DisplayFor(modelItem => item.Message)
+        </div>
+    </div>
+    if (item.Username == User.Identity.GetUserId() || User.IsInRole("Admin") || User.IsInRole("Moderator"))
+    {
+        <div>
+            @Html.ActionLink("Edit", "EditComment", new { id = item.Id }) <span>|</span>
+            @Html.ActionLink("Delete", "DeleteComment", new { id = item.Id })
+        </div>
+    }
+    <br />
+                <!--<div class="hline"></div>-->
+}
+    <div>
+        <input type="button" class="btn btn-primary" value="Return to Blog Roll" onclick="location.href='@Url.Action("BlogIndex")'">
+    </div>
+    <br />
+    @if (User.Identity.IsAuthenticated || User.IsInRole("Admin") || User.IsInRole("Moderator"))
     {
         <input type="button" class="btn btn-primary" value="Modify Post" onclick="location.href='@Url.Action("BlogAdmin")'">
+        <br />
+        <br />
     }
-<br />
-<br />
 </div>
 

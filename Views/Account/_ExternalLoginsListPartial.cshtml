@@ -1,12 +1,13 @@
 ﻿@model WebAppPortfolio.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-<div class="bs-docs-section">
-    <h4 id="shortcodes" class="page-header"><i class="fa fa-facebook"></i> External Logins </h4>
-</div><hr />
+<div class="social_sign">
+    <h3> Log in with your social media accounts</h3>
+</div>
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
-    if (loginProviders.Count() == 0) {
+    if (loginProviders.Count() == 0)
+    {
         <div>
             <p>
                 There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
@@ -14,15 +15,24 @@
             </p>
         </div>
     }
-    else {
-        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
+    else
+    {
+        using (Html.BeginForm("ExternalLogin", "Account", new {ReturnUrl = Model.ReturnUrl}))
+        {
             @Html.AntiForgeryToken()
-            <div id="socialLoginList">
-                <p>
-                    @foreach (AuthenticationDescription p in loginProviders) {
-                        <button type="submit" class="btn btn-primary" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
-                    }
-                </p>
+
+            <div class="social_sign">
+                @foreach (AuthenticationDescription p in loginProviders)
+                {
+                    <button class="@p.Caption"
+                            id="@p.AuthenticationType"
+                            name="provider"
+                            title="Log in using your @p.Caption account"
+                            type="submit"
+                            value="@p.AuthenticationType">
+                        <i class="fa fa-@p.Caption" style="color: #ffffff"></i>
+                    </button>
+                }
             </div>
         }
     }
