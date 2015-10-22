@@ -276,7 +276,8 @@ a:hover, a:focus {
     transform: scale(1.1) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
 }
 
-.social_sign button:link, .social_sign button:visited {
+.social_sign button:link, 
+.social_sign button:visited {
     color: #ffffff;
 }
 
@@ -286,6 +287,11 @@ a:hover, a:focus {
 
 .social_sign button.Facebook {
     background-color: #3B5998;
+}
+
+.social_sign a:hover,
+.social_sign a:focus {
+    color: #fff;
 }
 
 .fa-Facebook:before {

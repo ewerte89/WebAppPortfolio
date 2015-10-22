@@ -29,8 +29,8 @@ namespace WebAppPortfolio.Models
         public string Body { get; set; }
         public string MediaURL { get; set; }
         public bool Published { get; set; }
-        public virtual ICollection<Tag> Tags { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; }
     }
 
     public class Comment
@@ -44,7 +44,6 @@ namespace WebAppPortfolio.Models
         public DateTimeOffset? Edited { get; set; }
         public virtual BlogPosts BlogPosts { get; set; }
         public int? ParentId { get; set; }
-
         [ForeignKey("ParentId")]
         public virtual ICollection<Comment> Children { get; set; }
         public string ParentComment { get; internal set; }

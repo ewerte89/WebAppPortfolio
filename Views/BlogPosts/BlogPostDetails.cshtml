@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
-@model WebAppPortfolio.Models.BlogPosts
+@using WebAppPortfolio.Models
+@model BlogPosts 
 
 @{
     ViewBag.Title = "BlogPostDetails";
@@ -10,8 +11,7 @@
     ============================================== *@
 
 <div class="bs-docs-section">
-    <h1 id="shortcodes" class="page-header"><i class="fa fa-laptop"></i> @Html.DisplayFor(model => model.Title)
-    </h1>
+    <h1 id="shortcodes" class="page-header"><i class="fa fa-laptop"></i> @Html.DisplayFor(model => model.Title)</h1>
 </div>
 <div>
     <input type="button" class="btn btn-primary" value="Return to Blog Roll" onclick="location.href='@Url.Action("BlogIndex")'">
@@ -52,29 +52,18 @@
 {
     //using (Html.BeginForm())
     //{
-    <div>
-        <h4>Leave a comment.</h4>
-        <div class="hline"></div>
-        <form action="@Url.Action("CreateComment")" method="post">
-            @Html.AntiForgeryToken()
-            <input type="hidden" name="Slug" value="@Model.Slug" />
-            <textarea name="Body" placeholder="Your Comment Here..." id="comment"></textarea>
-            <input type="hidden" name="PostID" value="@Model.Id" />
-            <br/>
-            <br />
-            <br />
-            <input type="submit" value="Post Comment" class="btn btn-primary" />
-        </form>
-        <div class="bs-docs-section">
-            <h4 id="shortcodes" class="page-header">
-                <i class="fa fa-lightbulb-o"></i> Comments about "@Html.DisplayFor(model => model.Title)"
-            </h4>
-        </div>        <div class="hline"></div>
-        <br />
-    </div>
-    //}
+    @Html.Partial("_CreateComment", new Comment {} )
+   
 }
-@foreach (var item in Model.Comments)
+
+<div class="bs-docs-section">
+    <h4 id="shortcodes" class="page-header">
+        <i class="fa fa-lightbulb-o"></i> Comments about "@Html.DisplayFor(model => model.Title)"
+    </h4>
+</div>        <div class="hline"></div>
+<br />
+
+    @foreach (var item in Model.Comments)
             {
     <div class="commentContainer">
         <p>
@@ -99,8 +88,8 @@
     if (item.Username == User.Identity.GetUserId() || User.IsInRole("Admin") || User.IsInRole("Moderator"))
     {
         <div>
-            @Html.ActionLink("Edit", "EditComment", new { id = item.Id }) <span>|</span>
-            @Html.ActionLink("Delete", "DeleteComment", new { id = item.Id })
+            @Html.ActionLink("Edit", "_EditComment", new { id = item.Id }) <span>|</span>
+            @Html.ActionLink("Delete", "_DeleteComment", new { id = item.Id })
         </div>
     }
     <br />

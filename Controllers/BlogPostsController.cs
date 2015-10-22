@@ -238,7 +238,7 @@ namespace WebAppPortfolio.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateComment([Bind(Include = "Id,Message,Username,DatePosted,BlogPosts,ParentId,ParentComment")]Comment comment, string Slug)
+        public ActionResult _CreateComment([Bind(Include = "Id,Message,Username,DatePosted,BlogPosts,ParentId,ParentComment")]Comment comment, string Slug)
         {
             if (ModelState.IsValid)
             {
@@ -248,7 +248,8 @@ namespace WebAppPortfolio.Controllers
                 db.SaveChanges();
                 return RedirectToAction("BlogPostDetails", new { Slug });
             }
-            return View(comment);
+
+            return PartialView(comment);
         }
 
         // ==============================================
@@ -256,7 +257,7 @@ namespace WebAppPortfolio.Controllers
         // ============================================== 
 
         //GET Comments/Edit
-        public ActionResult EditComment(int? id)
+        public ActionResult _EditComment(int? id)
         {
             if (id == null)
             {
@@ -275,7 +276,7 @@ namespace WebAppPortfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditComment([Bind(Include = "Id,Message,Username,DatePosted,BlogPosts,ParentId,ParentComment")] Comment comment, string Slug)
+        public ActionResult _EditComment([Bind(Include = "Id,Message,Username,DatePosted,BlogPosts,ParentId,ParentComment")] Comment comment, string Slug)
         {
             if (ModelState.IsValid)
             {
@@ -288,7 +289,11 @@ namespace WebAppPortfolio.Controllers
             return View(comment);
         }
 
-        public ActionResult DeleteComment(int? id)
+        // ==============================================
+        //  COMMENT EDIT VIEW
+        // ============================================== 
+
+        public ActionResult _DeleteComment(int? id)
         {
             if (id == null)
             {
@@ -302,11 +307,7 @@ namespace WebAppPortfolio.Controllers
             return View(comment);
         }
 
-        // ==============================================
-        //  COMMENT DELETE VIEW
-        // ============================================== 
-
-        [HttpPost, ActionName("DeleteComment")]
+        [HttpPost, ActionName("_DeleteComment")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteCommentConfirmed(int id, string Slug)
         {
