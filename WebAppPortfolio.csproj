@@ -477,6 +477,7 @@
     <Content Include="Content\twitter-bootstrap\less\utilities.less" />
     <Content Include="Content\twitter-bootstrap\less\variables.less" />
     <Content Include="Content\twitter-bootstrap\less\wells.less" />
+    <None Include="Properties\PublishProfiles\elliotewert.pubxml" />
     <None Include="Scripts\jQuery\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\JavaScriptExercises\armstrongNumbers.js" />
     <Content Include="Scripts\JavaScriptExercises\exercises.js" />
