@@ -238,7 +238,7 @@ namespace WebAppPortfolio.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult _CreateComment([Bind(Include = "Id,Message,Username,DatePosted,BlogPosts,ParentId,ParentComment")]Comment comment, string Slug)
+        public ActionResult CreateComment([Bind(Include = "PostId,Message,Username,DatePosted")]Comment comment, string Slug)
         {
             if (ModelState.IsValid)
             {
@@ -249,7 +249,7 @@ namespace WebAppPortfolio.Controllers
                 return RedirectToAction("BlogPostDetails", new { Slug });
             }
 
-            return PartialView(comment);
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
 
         // ==============================================
@@ -276,7 +276,7 @@ namespace WebAppPortfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult _EditComment([Bind(Include = "Id,Message,Username,DatePosted,BlogPosts,ParentId,ParentComment")] Comment comment, string Slug)
+        public ActionResult _EditComment([Bind(Include = "PostId,Message,Username,DatePosted")] Comment comment, string Slug)
         {
             if (ModelState.IsValid)
             {

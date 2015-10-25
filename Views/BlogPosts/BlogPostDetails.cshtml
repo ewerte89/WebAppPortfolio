@@ -48,14 +48,26 @@
             <a href="http://www.pinterest.com" target="_blank"><i class="fa fa-pinterest-square" target="_blank"></i></a>
         </div>
     </div>
-@if (User.Identity.IsAuthenticated)
-{
-    //using (Html.BeginForm())
-    //{
-    @Html.Partial("_CreateComment", new Comment {} )
-   
-}
-
+    @if (User.Identity.IsAuthenticated)
+    {
+        //using (Html.BeginForm())
+        //  {
+        <div>
+            <h6 id="shortcodes" class="page-header"><i class="fa fa-file-text-o"></i> Leave a comment</h6>
+            <div class="hline"></div>
+            <form action="@Url.Action("CreateComment", "BlogPosts")" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="Slug" value="@Model.Slug"/>
+                <textarea name="Message" placeholder="Your Comment Here..." id="comment" style="width: 400px"></textarea>
+                <input type="hidden" name="PostId" value="@Model.Id"/>
+                <br/>
+                <br/>
+                <br/>
+                <input type="submit" value="Post Comment" class="btn btn-primary"/>
+            </form>
+        </div>
+        //}
+    }
 <div class="bs-docs-section">
     <h4 id="shortcodes" class="page-header">
         <i class="fa fa-lightbulb-o"></i> Comments about "@Html.DisplayFor(model => model.Title)"
@@ -65,36 +77,36 @@
 
     @foreach (var item in Model.Comments)
             {
-    <div class="commentContainer">
-        <p>
-            @if (item.Username == null)
-            {
-                <csmall>By: Anonymous</csmall><span>|</span>
-            }
-            else
-            {
-                <csmall>By: @Html.DisplayFor(modelItem => item.Username)</csmall><span>|</span>
-            }
-            <csmall>Date: @Html.DisplayFor(modelItem => item.DatePosted)</csmall>
-            @if (item.Edited != null)
-            {
-                <span>|</span><csmall>Updated: @Html.DisplayFor(modelItem => item.Edited)</csmall>
-            }
-        </p>
-        <div>
-            @Html.DisplayFor(modelItem => item.Message)
+        <div class="commentContainer">
+            <p>
+                @if (item.Username == null)
+                {
+                    <small>By: Anonymous</small><span>|</span>
+                }
+                else
+                {
+                    <small>By: @Html.DisplayFor(modelItem => item.Username)</small><span>|</span>
+                }
+                <small>Date: @Html.DisplayFor(modelItem => item.DatePosted)</small>
+                @if (item.Edited != null)
+                {
+                    <span>|</span><small>Updated: @Html.DisplayFor(modelItem => item.Edited)</small>
+                }
+            </p>
+            <div>
+                @Html.DisplayFor(modelItem => item.Message)
+            </div>
         </div>
-    </div>
-    if (item.Username == User.Identity.GetUserId() || User.IsInRole("Admin") || User.IsInRole("Moderator"))
-    {
-        <div>
-            @Html.ActionLink("Edit", "_EditComment", new { id = item.Id }) <span>|</span>
-            @Html.ActionLink("Delete", "_DeleteComment", new { id = item.Id })
-        </div>
-    }
-    <br />
+            if (item.Username == User.Identity.GetUserId() || User.IsInRole("Admin") || User.IsInRole("Moderator"))
+            {
+                <div>
+                    @Html.ActionLink("Edit", "_EditComment", new { id = item.Id }) <span>|</span>
+                    @Html.ActionLink("Delete", "_DeleteComment", new { id = item.Id })
+                </div>
+            }
+        <br />
                 <!--<div class="hline"></div>-->
-}
+        }
     <div>
         <input type="button" class="btn btn-primary" value="Return to Blog Roll" onclick="location.href='@Url.Action("BlogIndex")'">
     </div>
