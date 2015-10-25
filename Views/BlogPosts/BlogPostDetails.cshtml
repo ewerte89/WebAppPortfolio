@@ -19,25 +19,28 @@
 <br/>
 <br/>
 <div>
-@if (Model.MediaURL != null)
-{
-    <p><img class="img-responsive dMediaUrl" src="@Model.MediaURL" alt=""></p>
-            <hr />
-}
-
-<p>
-    <csmall>Posted: @Html.DisplayFor(model => model.Created)</csmall> |
-    @if (Model.Updated != null)
-            {
-        <csmall>Updated: @Html.DisplayFor(model => model.Updated)</csmall> <span>|</span>
-    }
-    <csmall2>By: Elliot Ewert</csmall2>
-    @if (Model.Category != null)
+    @if (Model.MediaURL != null)
     {
-        <span>|</span> <csmall>Category: @Html.DisplayFor(model => model.Category)</csmall>
+        <p><img class="img-responsive dMediaUrl" src="@Model.MediaURL" alt="">
+        </p>
+        <hr/>
     }
-</p>
-<p>@Html.Raw(Model.Body)</p>
+
+    <p>
+        <csmall>Posted: @Html.DisplayFor(model => model.Created)</csmall> |
+        @if (Model.Updated != null)
+        {
+            <csmall>Updated: @Html.DisplayFor(model => model.Updated)</csmall>
+            <span>|</span>
+        }
+        <csmall2>By: Elliot Ewert</csmall2>
+        @if (Model.Category != null)
+        {
+            <span>|</span>
+            <csmall>Category: @Html.DisplayFor(model => model.Category)</csmall>
+        }
+    </p>
+    <p>@Html.Raw(Model.Body)</p>
     <div class="spacing">
         <div id="social_media_wrapper">
             <a href="http://www.facebook.com.com/" target="_blank"><i class="fa fa-facebook-square"></i></a>
@@ -68,15 +71,16 @@
         </div>
         //}
     }
-<div class="bs-docs-section">
-    <h4 id="shortcodes" class="page-header">
-        <i class="fa fa-lightbulb-o"></i> Comments about "@Html.DisplayFor(model => model.Title)"
-    </h4>
-</div>        <div class="hline"></div>
-<br />
+    <div class="bs-docs-section">
+        <h4 id="shortcodes" class="page-header">
+            <i class="fa fa-lightbulb-o"></i> Comments about "@Html.DisplayFor(model => model.Title)"
+        </h4>
+    </div>
+    <div class="hline"></div>
+    <br/>
 
     @foreach (var item in Model.Comments)
-            {
+    {
         <div class="commentContainer">
             <p>
                 @if (item.Username == null)
@@ -97,25 +101,30 @@
                 @Html.DisplayFor(modelItem => item.Message)
             </div>
         </div>
-            if (item.Username == User.Identity.GetUserId() || User.IsInRole("Admin") || User.IsInRole("Moderator"))
-            {
-                <div>
-                    @Html.ActionLink("Edit", "_EditComment", new { id = item.Id }) <span>|</span>
-                    @Html.ActionLink("Delete", "_DeleteComment", new { id = item.Id })
-                </div>
-            }
-        <br />
-                <!--<div class="hline"></div>-->
+        if (item.Username == User.Identity.GetUserId() || User.IsInRole("Admin") || User.IsInRole("Moderator"))
+        {
+            <div>
+                @Html.ActionLink("Edit", "_EditComment", new {id = item.Id}) <span>|</span>
+                @Html.ActionLink("Delete", "_DeleteComment", new {id = item.Id})
+            </div>
         }
+        <br/>
+        <!--<div class="hline"></div>-->
+    }
     <div>
-        <input type="button" class="btn btn-primary" value="Return to Blog Roll" onclick="location.href='@Url.Action("BlogIndex")'">
+        <input type="button" class="btn btn-primary" value="Return to Blog Roll" onclick="location.href = '@Url.Action("BlogIndex")'">
     </div>
-    <br />
+    <br/>
     @if (User.Identity.IsAuthenticated || User.IsInRole("Admin") || User.IsInRole("Moderator"))
     {
-        <input type="button" class="btn btn-primary" value="Modify Post" onclick="location.href='@Url.Action("BlogAdmin")'">
-        <br />
-        <br />
+        <input type="button" class="btn btn-primary" value="Modify Post" onclick="location.href = '@Url.Action("BlogAdmin")'">
+        <br/>
+        <br/>
     }
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+}
 

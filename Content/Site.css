@@ -309,3 +309,15 @@ a:hover, a:focus {
 .social_sign button.Twitter {
     background-color: #00ACEE;
 }
+
+/*Footer Feed*/
+li.media h4.media-heading {
+    color: #ff8000;
+    margin:0 0 0 75px;
+}
+
+li.media a.media-date {
+    border-left: solid 0px;
+    border-bottom: solid 2px #fff;
+    border-right: solid 2px #fff;
+}
