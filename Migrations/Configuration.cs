@@ -13,6 +13,7 @@ namespace WebAppPortfolio.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "WebAppPortfolio.Models.ApplicationDbContext";
         }
 

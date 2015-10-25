@@ -65,11 +65,11 @@
                             <li class="dropdown">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">Projects<span class="caret" style="border-bottom-color:#fff; border-top-color:#fff"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("JavaScript Exercises", "Portfolio", "Home")</li>
-                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Bug Tracker", "Portfolio", "Home")</li>
-                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Personal Finance", "Portfolio", "Home")</li>
-                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Car Finder", "Portfolio", "Home")</li>
-                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Photography", "Portfolio", "Home")</li>
+                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("JavaScript Exercises", "Portfolio", "Home", null, null, "javascript", null, null)</li>
+                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Bug Tracker", "Portfolio", "Home", null, null, "bugtracker", null, null)</li>
+                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Personal Finance", "Portfolio", "Home", null, null, "finance", null, null)</li>
+                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Car Finder", "Portfolio", "Home", null, null, "carfinder", null, null)</li>
+                                    <li class="@(ViewBag.Title == "Portfolio" ? "active": "")">@Html.ActionLink("Photography", "About", "Home", null, null, "photos", null, null)</li>
                                 </ul>
                             </li>
                             <li class="@(ViewBag.Title == "Résumé" ? "active" : "")">@Html.ActionLink("Résumé", "Résumé", "Home")</li>

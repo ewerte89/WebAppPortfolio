@@ -8,7 +8,7 @@
 <script src="~/Scripts/JavaScriptExercises/findWord.js"></script>
 
 <div class="bs-docs-section">
-    <h1 id="shortcodes" class="page-header"><i class="fa fa-code"></i> JavaScript Exercises </h1>
+    <h1 id="javascript" class="page-header" name="javascript"><i class="fa fa-code"></i> JavaScript Exercises </h1>
 </div>
 <br />
 <!--Butons-->
@@ -706,7 +706,7 @@ function findWordFreq(str) {            //load words in document into array
 <!--Find Word Modal-->
 <!--Find Word Modal-->
 <div class="modal fade" id="findword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" valign="middle" align="center">
-    <div class="modal-dialog-lg" role="document" style="width:80%">
+    <div class="modal-dialog-lg" role="document" style="width: 80%">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -717,11 +717,11 @@ function findWordFreq(str) {            //load words in document into array
                 <div class="row">
                     <div class="col-md-6">
                         <h4>Find Word:</h4>
-                        <br />
+                        <br/>
                         <p>
-                            <input type="text" id="searchString" size="2"><br />
-                            <input type="file" id="fileinput1" />
-                            <script align="center">document.getElementById("fileinput1").addEventListener("change", findWord, false);</script><br />
+                            <input type="text" id="searchString" size="2"><br/>
+                            <input type="file" id="fileinput1"/>
+                            <script align="center">document.getElementById("fileinput1").addEventListener("change", findWord, false);</script><br/>
                         </p>
                         <h4 class="" id="findWordResult">?</h4>
                     </div>
@@ -756,6 +756,27 @@ function countAWord(searchString, str) {
             </div>
         </div>
     </div>
+</div>
+
+<div class="bs-docs-section">
+    <h1 id="bugtracker" class="page-header" name="bugtracker"><i class="fa fa-bug"></i> Bug Tracker
+    </h1>
+</div>
+<img src="~/Content/Images/View_Clipart/coming-soon-stamp_23-2147502484.jpg" />
+
+<div class="bs-docs-section">
+    <h1 id="finance" class="page-header" name="finance"><i class="fa fa-money"></i> Personal Finance Manager </h1>
+</div>
+<img src="~/Content/Images/View_Clipart/coming-soon-stamp_23-2147502484.jpg"/>
+
+<div class="bs-docs-section">
+    <h1 id="carfinder" class="page-header" name="carfinder"><i class="fa fa-search"></i> Car Finder
+    </h1>
+</div>
+<img src="~/Content/Images/View_Clipart/coming-soon-stamp_23-2147502484.jpg" />
+
+<div>
+    <small>Comming soon credit: <a href="http://freepiks.com">Freepiks.com</a></small>
 </div>
 @section scripts
 {
