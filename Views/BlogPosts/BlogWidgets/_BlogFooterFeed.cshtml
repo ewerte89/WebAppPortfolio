@@ -13,9 +13,9 @@
     @foreach (var item in Model)
     {
     <ul class="media-list">
-        <li class="media">
-            <a href="@Url.Action( "BlogPostDetails", new { item.Slug })" class="media-photo" style="background-image:url(/images/portfolio/t5.jpg)"></a>
-            <a href="@Url.Action("BlogPostDetails", new {item.Slug})" class="media-date" style="color: #fff; background-color: #428bca">
+        <li class="media" href="@Url.Action("BlogPostDetails", new { item.Slug })">
+            <img src="@item.MediaURL" href="@Url.Action("BlogPostDetails", new { item.Slug })" class="media-photo" alt="blog-photo" />
+            <a href="@Url.Action("BlogPostDetails", new { item.Slug })" class="media-date" style="color: #fff; background-color: #428bca">
                 <span style="font-weight: 600; text-shadow: 1px 1px 0px #333">@item.Created.DateTime.ToString("MMM dd")</span>
             </a>
             <h4 class="media-heading"><a href="@Url.Action( "BlogPostDetails", new { item.Slug })">@item.Title</a></h4>

@@ -239,12 +239,14 @@
     <Content Include="Content\Fonts\FontAwesome\CSS\font-awesome.css" />
     <Content Include="Content\Fonts\FontAwesome\CSS\font-awesome.min.css" />
     <Content Include="Content\Fonts\FontAwesome\Fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Images\Profile_Portraits\CF_LinkedIn - Tamed Hair - Square %28800x800%29.jpg" />
     <Content Include="Content\Images\View_Clipart\Coming Soon 1.jpg" />
     <Content Include="Content\Images\View_Clipart\Coming Soon 2 %281024x768%29.jpg" />
     <Content Include="Content\Images\View_Clipart\Coming Soon 2.jpg" />
     <Content Include="Content\Images\View_Clipart\Coming Soon 3 %281024x768%29.jpg" />
     <Content Include="Content\Images\View_Clipart\Coming Soon 3.jpg" />
     <Content Include="Content\Images\View_Clipart\coming-soon-stamp_23-2147502484.jpg" />
+    <Content Include="Content\Images\View_Clipart\Elliot Ewert Résumé Professional.docx.pdf" />
     <Content Include="Content\Images\View_Clipart\hammer.png" />
     <Content Include="Content\Images\View_Clipart\hoopti.JPG" />
     <Content Include="Content\Images\View_Clipart\orange_arrows.png" />
@@ -329,7 +331,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\Images\View_Clipart\Elliot Ewert Résumé Professional.docx.pdf" />
     <Content Include="Content\Less\bootstrap.less" />
     <Content Include="Content\Less\custom_variables.less" />
     <Content Include="Content\Less\style.less" />
@@ -731,7 +732,6 @@
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Portfolio.cshtml" />
     <Content Include="Views\Home\Résumé.cshtml" />
@@ -779,9 +779,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\BlogPostUploads\" />
     <Folder Include="Content\Images\Landscapes\" />
     <Folder Include="Content\Images\Mono_Backgrounds\" />
-    <Folder Include="Content\Images\Profile_Portraits\" />
     <Folder Include="Content\Images\Technology_Logos\" />
     <Folder Include="Scripts\CommentSystem\" />
   </ItemGroup>

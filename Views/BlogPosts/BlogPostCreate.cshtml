@@ -7,9 +7,9 @@
 <div class="bs-docs-section">
     <h1 id="shortcodes" class="page-header"><i class="fa fa-pencil"></i> Create new post </h1>
 </div>
-@using (Html.BeginForm())
-{
-    <form type="submit" action="@Url.Action("BlogPostCreate")" method="post" enctype="multipart/form-data" />
+@*@using (Html.BeginForm())*@
+@*{*@
+<form type="submit" action="@Url.Action("BlogPostCreate")" method="post" enctype="multipart/form-data">
 
     @Html.AntiForgeryToken()
 
@@ -20,7 +20,7 @@
         <!--TITLE-->
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
@@ -29,7 +29,7 @@
         <!--CATEGORY-->
         <div class="form-group">
             @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
             </div>
@@ -44,27 +44,18 @@
             </div>
         </div>
 
-        <!--IMAGE UPLOAD-->
-        <div class="form-group">
-            <label class="control-label col-md-2" for="">Upload Image</label>
-            <div class="col-md-10">
-                <input name="image" type="file" class="form-control" id="fileUpload" />
-            </div>
-        </div>
-
         <!--MEDIA URL-->
         <div class="form-group">
             @Html.LabelFor(model => model.MediaURL, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MediaURL, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MediaURL, "", new { @class = "text-danger" })
+            <div class="col-md-4">
+                <input name="imageFile" type="file" class="form-control" id="fileUpload" />
             </div>
         </div>
 
         <!--PUBLISHED-->
         <div class="form-group">
             @Html.LabelFor(model => model.Published, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Published)
                     @Html.ValidationMessageFor(model => model.Published, "", new { @class = "text-danger" })
@@ -72,23 +63,26 @@
             </div>
         </div>
 
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" class="btn btn-primary" value="Create">
                 <br />
                 <br />
-                <input type="button" class="btn btn-primary" value="Back to List" onclick="location.href='@Url.Action("BlogAdmin")'">
+                <input type="button" class="btn btn-primary" value="Back to List" onclick="location.href = '@Url.Action("BlogAdmin")'">
             </div>
         </div>
     </div>
-}
+</form>
+
+@*}*@
 @section Scripts {
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
     <script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
     <script>
-                $(document).ready(function () {
-                    $('textarea').tinymce({});
-                })
+        $(document).ready(function () {
+            $('textarea').tinymce({});
+        })
     </script>
 }
 

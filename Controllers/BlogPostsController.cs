@@ -17,16 +17,32 @@ namespace WebAppPortfolio.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // ==============================================
-        //  BLOG INDEX VIEW W/ PAGING
+        //  BLOG INDEX VIEW W/ SEARCH & PAGING
         // ============================================== 
 
         // GET: BlogPosts with Paging
-        public ActionResult BlogIndex(int? page)
+        public ActionResult BlogIndex(int? page, string searchTerm)
         {
+
+            var blogList = from str in db.BlogPosts
+                           select str;
+
+            if (searchTerm != null)
+            {
+                if (!String.IsNullOrWhiteSpace(searchTerm))
+                {
+                    blogList = blogList.Where(s => s.Title.Contains(searchTerm) ||
+                        s.Body.Contains(searchTerm) ||
+                        s.Comments.Any(c => c.Message.Contains(searchTerm)) ||
+                        s.Category.Contains(searchTerm));
+                }
+            }
+
             int pageSize = 3;
+
             int pageNumber = (page ?? 1);
-            var t = db.BlogPosts.OrderBy(p => p.Created).ToPagedList(pageNumber, pageSize);
-            return View(t);
+
+            return View(model: blogList.OrderByDescending(p => p.Created).ToPagedList(pageNumber, pageSize));
         }
 
         // ==============================================
@@ -73,7 +89,7 @@ namespace WebAppPortfolio.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var blogPost = db.BlogPosts./*Include(model => model.Comments).*/FirstOrDefault(model => model.Slug == slug);
+            var blogPost = db.BlogPosts.Include(model => model.Comments).FirstOrDefault(model => model.Slug == slug);
             if (slug == null)
             {
                 return HttpNotFound("Error");
@@ -107,15 +123,19 @@ namespace WebAppPortfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult BlogPostCreate([Bind(Include = "Id,Created,Updated,Title,Slug,Body,Category,Tag,MediaURL,Published")] BlogPosts blogPost, HttpPostedFileBase imageFile)
+        public ActionResult BlogPostCreate([Bind(Include = "Id,Created,Updated,Title,Slug,Body,Category,MediaURL,Published")] BlogPosts blogPost, HttpPostedFileBase imageFile)
         {
             if (imageFile != null && imageFile.ContentLength > 0)
             {
                 //check the file name to make sure it's an image
-                var ext = Path.GetExtension(imageFile.FileName).ToLower();
+                var extension = Path.GetExtension(imageFile.FileName);
+                if (extension != null)
+                {
+                    var ext = extension.ToLower();
 
-                if (ext != ".png" && ext != ".jpg" && ext != ".jpeg" && ext != ".gif" && ext != ".bmp")
-                    ModelState.AddModelError("image", "Invalid file format extension detected. The following formats are valid: .png .jpg .jpeg .gif .bmp");
+                    if (ext != ".png" && ext != ".jpg" && ext != ".jpeg" && ext != ".gif" && ext != ".bmp")
+                        ModelState.AddModelError("image", "Invalid file format extension detected. The following formats are valid: .png .jpg .jpeg .gif .bmp");
+                }
             }
 
             if (ModelState.IsValid)
@@ -123,7 +143,7 @@ namespace WebAppPortfolio.Controllers
                 if (imageFile != null)
                 {
                     //relative server path
-                    var filePath = "/Uploads/";
+                    var filePath = "/Content/Images/BlogPostUploads/";
                     //path on physical drive on server
                     var absPath = Server.MapPath("~" + filePath);
                     //media URL for relative path

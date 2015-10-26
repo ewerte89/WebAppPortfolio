@@ -1,7 +1,7 @@
 ﻿@using PagedList;
 @using PagedList.Mvc;
 
-@model PagedList<WebAppPortfolio.Models.BlogPosts>
+@model IPagedList<WebAppPortfolio.Models.BlogPosts>
 @{
     ViewBag.Title = "BlogIndex";
 }
@@ -34,7 +34,7 @@
                         @if (item.MediaURL != null)
                         {
                             <div class="post_content">
-                                <figure><img class="img-responsive" src="@item.MediaURL" /></figure>
+                                <figure><img class="img-responsive" src="@item.MediaURL" style="border-radius: 7px 7px 7px 7px"/></figure>
                             </div>
                         }
 
