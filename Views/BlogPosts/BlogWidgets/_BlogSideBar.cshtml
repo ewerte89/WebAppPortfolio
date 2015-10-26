@@ -4,43 +4,69 @@
 
 @model IEnumerable<WebAppPortfolio.Models.BlogPosts>
 
-@{
-    <div id="sidebar" class="col-sm-4 col-md-4">
-        <aside class="widget">
-            <ul class="nav nav-tabs" id="myTab">
-                <li class="active"><a data-toggle="tab" href="#categories">Categories</a></li>
-                <li class=""><a data-toggle="tab" href="#images">Images</a></li>
-                <li class=""><a data-toggle="tab" href="#links">Links</a></li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div id="categories" class="tab-pane fade active in">
-                    <ul class="media-list">
-                        @foreach (var item in Model)
-                        {
-                            <li class="media">
-                                <a href="@Url.Action("BlogPostDetails", new { item.Slug })" class="media-date">@item.Created.DateTime.ToString("MMM dd")</a>
-                                <h3><a href="@Url.Action( "BlogPostDetails", new { item.Slug })">@item.Category</a></h3>
-                            </li>
-                        }
-                    </ul>
+<!-- SEARCH BAR -->
+<div class="col-sm-4 col-md-4">
+    <!--<div class="hline"></div>-->
+    <form action="@Url.Action("BlogIndex")" method="post">
+        <p>
+            <div class="row">
+                <div class="col-md-8" style="padding-left:30px">
+                    <input type="text" class="form-control" placeholder="What are you looking for?" name="searchTerm" id="searchTerm"/>
                 </div>
-                       @foreach (var item in Model)
-                       {
-                           <div id="images" class="tab-pane fade">
-                               <img src="@item.MediaURL" class="media-photo" alt="blog-photo"/>
-                           </div>
-                       }
-                <div id="links" class="tab-pane fade">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class=""><a href="http://blog.codinghorror.com/" target="_blank">Coding Horror</a></li>
-                        <li class=""><a href="http://www.metaltoad.com/blog" target="_blank">Metal Toad</a></li>
-                        <li class=""><a href="http://programmers.stackexchange.com/questions/115269/i-am-not-a-good-programmer-in-logic-how-should-i-fix-it" target="_blank">Programmers.StackExchange</a></li>
-                        <li class=""><a href="http://www.dotnetperls.com/" target="_blank">Dot Net Perls</a></li>
-                        <li class=""><a href="https://dotnetfiddle.net/" target="_blank">.NET Fiddle</a></li>
-                        <li class=""><a href="http://coderbyte.com/" target="_blank">Coderbyte</a></li>
-                    </ul>
+                <div class="col-md-4">
+                    <input type="submit" class="btn btn-primary" value="Search Posts" id="search" style="margin-top: 0%; margin-left: 0%"/>
                 </div>
             </div>
-        </aside>
-    </div>
-}
+        </p>
+        @*   <div><!--class="form-group"-->
+            </div>   *@
+    </form>
+</div>
+
+    @{
+        <div id="sidebar" class="col-sm-4 col-md-4">
+            <aside class="widget">
+                <ul class="nav nav-tabs" id="myTab">
+                    <li class="active"><a data-toggle="tab" href="#categories">Categories</a></li>
+                    <li class=""><a data-toggle="tab" href="#images">Images</a></li>
+                    <li class=""><a data-toggle="tab" href="#links">Links</a></li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div id="categories" class="tab-pane fade active in">
+                        <ul class="media-list">
+                            @foreach (var item in Model)
+                            {
+                                <li class="media">
+                                    <a href="@Url.Action("BlogPostDetails", new { item.Slug })" class="media-date">@item.Created.DateTime.ToString("MMM dd")</a>
+                                    <h3><a href="@Url.Action( "BlogPostDetails", new { item.Slug })">@item.Category</a></h3>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                            @foreach (var item in Model)
+                            {
+                                <div id="images" class="tab-pane fade">
+                                    <ul>
+                                        <li class="flickr-image no-1">
+                                            <img href="@Url.Action("BlogPostDetails", new { item.Slug })" src="@item.MediaURL" class="media-photo" alt="blog-photo" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            }
+                    <div id="links" class="tab-pane fade">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class=""><a href="http://wired.com/" target="_blank">Wired</a></li>
+                            <li class=""><a href="http://motherboard.vice.com/" target="_blank">Vice Motherboad</a></li>
+                            <li class=""><a href="http://theverge.com/" target="_blank">The Verge</a></li>
+                            <li class=""><a href="http://blog.codinghorror.com/" target="_blank">Jeff Atwood</a></li>
+                            <li class=""><a href="http://www.metaltoad.com/blog" target="_blank">Metal Toad</a></li>
+                            <li class=""><a href="http://programmers.stackexchange.com/questions/115269/i-am-not-a-good-programmer-in-logic-how-should-i-fix-it" target="_blank">Programmers.StackExchange</a></li>
+                            <li class=""><a href="http://www.dotnetperls.com/" target="_blank">Dot Net Perls</a></li>
+                            <li class=""><a href="https://dotnetfiddle.net/" target="_blank">.NET Fiddle</a></li>
+                            <li class=""><a href="http://coderbyte.com/" target="_blank">Coderbyte</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    }

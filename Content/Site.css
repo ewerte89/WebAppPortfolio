@@ -310,6 +310,25 @@ a:hover, a:focus {
     background-color: #00ACEE;
 }
 
+/*Blog Index*/
+article.post .post_content figure {
+    max-height: initial;
+    max-width: 400px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.img-responsive, 
+.thumbnail > img, 
+.thumbnail a > img, 
+.carousel-inner > .item > img, 
+.carousel-inner > .item > a > img {
+    max-height: initial;
+    max-width: 400px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
 /*Blog Sidebar Feed*/
 #sidebar li.media a.media-date {
     text-shadow: 1px 1px 0px #333;
@@ -326,6 +345,11 @@ li.media h3 a {
     font-weight: 900;
     text-align: center;
     text-shadow: 1px 1px 0px #333;
+}
+
+.in ul.nav li a:hover, 
+.in ul.nav li a:active {
+    color: #ff8000;
 }
 
 /*Blog Footer Feed*/
@@ -354,6 +378,16 @@ li.media h4.media-heading {
 #footer_teasers_wrapper .footer_teaser p {
     color: #fff;
     margin: 0 0 0 75px;
+}
+
+#sidebar aside.widget .tab-pane ul {
+    list-style-type: none;
+    -webkit-padding-start: 10px;
+}
+
+#sidebar aside.widget .tab-pane img {
+    max-width: 150px;
+    border-radius: 7px;    
 }
 
 /*li.media a.media-date {
