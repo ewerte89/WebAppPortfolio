@@ -3,7 +3,7 @@ namespace WebAppPortfolio.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -28,61 +28,18 @@ namespace WebAppPortfolio.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Message = c.String(nullable: false),
+                        PostId = c.Int(nullable: false),
                         Username = c.String(),
+                        Message = c.String(nullable: false),
                         DatePosted = c.DateTimeOffset(nullable: false, precision: 7),
                         Edited = c.DateTimeOffset(precision: 7),
-                        ParentId = c.Int(),
-                        ParentComment = c.String(),
-                        BlogPosts_Id = c.Int(),
-                        ApplicationUser_Id = c.String(maxLength: 128),
+                        Author_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.BlogPosts", t => t.BlogPosts_Id)
-                .ForeignKey("dbo.Comments", t => t.ParentId)
-                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
-                .Index(t => t.ParentId)
-                .Index(t => t.BlogPosts_Id)
-                .Index(t => t.ApplicationUser_Id);
-            
-            CreateTable(
-                "dbo.Tags",
-                c => new
-                    {
-                        Name = c.String(nullable: false, maxLength: 128),
-                        Slug = c.String(),
-                        TagsString = c.String(),
-                        BlogPosts_Id = c.Int(),
-                        Tag_Name = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.Name)
-                .ForeignKey("dbo.BlogPosts", t => t.BlogPosts_Id)
-                .ForeignKey("dbo.Tags", t => t.Tag_Name)
-                .Index(t => t.BlogPosts_Id)
-                .Index(t => t.Tag_Name);
-            
-            CreateTable(
-                "dbo.AspNetRoles",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
-                    })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
-            
-            CreateTable(
-                "dbo.AspNetUserRoles",
-                c => new
-                    {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId)
-                .Index(t => t.RoleId);
+                .ForeignKey("dbo.AspNetUsers", t => t.Author_Id)
+                .ForeignKey("dbo.BlogPosts", t => t.PostId, cascadeDelete: true)
+                .Index(t => t.PostId)
+                .Index(t => t.Author_Id);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -132,36 +89,52 @@ namespace WebAppPortfolio.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.AspNetUserRoles",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Comments", "PostId", "dbo.BlogPosts");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Comments", "ApplicationUser_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Comments", "Author_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Tags", "Tag_Name", "dbo.Tags");
-            DropForeignKey("dbo.Tags", "BlogPosts_Id", "dbo.BlogPosts");
-            DropForeignKey("dbo.Comments", "ParentId", "dbo.Comments");
-            DropForeignKey("dbo.Comments", "BlogPosts_Id", "dbo.BlogPosts");
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
-            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
-            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Tags", new[] { "Tag_Name" });
-            DropIndex("dbo.Tags", new[] { "BlogPosts_Id" });
-            DropIndex("dbo.Comments", new[] { "ApplicationUser_Id" });
-            DropIndex("dbo.Comments", new[] { "BlogPosts_Id" });
-            DropIndex("dbo.Comments", new[] { "ParentId" });
+            DropIndex("dbo.Comments", new[] { "Author_Id" });
+            DropIndex("dbo.Comments", new[] { "PostId" });
+            DropTable("dbo.AspNetRoles");
+            DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.AspNetUserRoles");
-            DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Tags");
             DropTable("dbo.Comments");
             DropTable("dbo.BlogPosts");
         }

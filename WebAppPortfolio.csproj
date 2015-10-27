@@ -215,9 +215,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201510141745244_InitialCreate.cs" />
-    <Compile Include="Migrations\201510141745244_InitialCreate.Designer.cs">
-      <DependentUpon>201510141745244_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201510270406479_Initial.cs" />
+    <Compile Include="Migrations\201510270406479_Initial.Designer.cs">
+      <DependentUpon>201510270406479_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -717,6 +717,7 @@
     <Content Include="Scripts\TinyMCE\tinymce.js" />
     <Content Include="Scripts\TinyMCE\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\Great_Plains_Nebraska_USA1.jpg" />
     <Content Include="Views\Account\ConfirmationSent.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -779,7 +780,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\BlogPostUploads\" />
     <Folder Include="Content\Images\Landscapes\" />
     <Folder Include="Content\Images\Mono_Backgrounds\" />
     <Folder Include="Content\Images\Technology_Logos\" />
@@ -789,8 +789,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201510141745244_InitialCreate.resx">
-      <DependentUpon>201510141745244_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510270406479_Initial.resx">
+      <DependentUpon>201510270406479_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -9,6 +9,12 @@ a:hover, a:focus {
     text-decoration: underline;
 }
 
+.btn-primary a,
+.btn-primary a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 /*Layout Title*/
 .navbar a.navbar-brand span.logo_title {
     font-size: 36px;

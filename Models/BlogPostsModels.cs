@@ -34,14 +34,16 @@ namespace WebAppPortfolio.Models
     public class Comment
     {
         public int Id { get; set; }
-        [AllowHtml]
-        [Required]
         public int PostId { get; set; }
-        public string Message { get; set; }
         public string Username { get; set; }
+
+        [Required]
+        [DataType(DataType.MultilineText)]
+        public string Message { get; set; }
         public DateTimeOffset DatePosted { get; set; }
-        public DateTimeOffset? Edited { get; set; }
-        public virtual BlogPosts BlogPosts { get; set; }
+        public Nullable<System.DateTimeOffset> Edited { get; set; }
+
+        public virtual BlogPosts Post { get; set; }
         public virtual ApplicationUser Author { get; set; }
         //public int? ParentId { get; set; }
         //[ForeignKey("ParentId")]

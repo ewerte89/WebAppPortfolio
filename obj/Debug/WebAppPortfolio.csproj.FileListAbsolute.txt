@@ -76,6 +76,6 @@ C:\Users\Elliot\Documents\Visual Studio 2015\Projects\WebAppPortfolio\WebAppPort
 C:\Users\Elliot\Documents\Visual Studio 2015\Projects\WebAppPortfolio\WebAppPortfolio\bin\System.Web.WebPages.Razor.xml
 C:\Users\Elliot\Documents\Visual Studio 2015\Projects\WebAppPortfolio\WebAppPortfolio\obj\Debug\WebAppPortfolio.dll
 C:\Users\Elliot\Documents\Visual Studio 2015\Projects\WebAppPortfolio\WebAppPortfolio\obj\Debug\WebAppPortfolio.pdb
-C:\Users\Elliot\Documents\Visual Studio 2015\Projects\WebAppPortfolio\WebAppPortfolio\obj\Debug\WebAppPortfolio.Migrations.InitialCreate.resources
-C:\Users\Elliot\Documents\Visual Studio 2015\Projects\WebAppPortfolio\WebAppPortfolio\obj\Debug\WebAppPortfolio.csproj.GenerateResource.Cache
 C:\Users\Elliot\Documents\Visual Studio 2015\Projects\WebAppPortfolio\WebAppPortfolio\obj\Debug\WebAppPortfolio.csprojResolveAssemblyReference.cache
+C:\Users\Elliot\Documents\Visual Studio 2015\Projects\WebAppPortfolio\WebAppPortfolio\obj\Debug\WebAppPortfolio.Migrations.Initial.resources
+C:\Users\Elliot\Documents\Visual Studio 2015\Projects\WebAppPortfolio\WebAppPortfolio\obj\Debug\WebAppPortfolio.csproj.GenerateResource.Cache

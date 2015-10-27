@@ -143,7 +143,7 @@ namespace WebAppPortfolio.Controllers
                 if (imageFile != null)
                 {
                     //relative server path
-                    var filePath = "/Content/Images/BlogPostUploads/";
+                    var filePath = "/Uploads/";
                     //path on physical drive on server
                     var absPath = Server.MapPath("~" + filePath);
                     //media URL for relative path
@@ -260,16 +260,19 @@ namespace WebAppPortfolio.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateComment([Bind(Include = "PostId,Message,Username,DatePosted")]Comment comment, string Slug)
         {
+            var post = db.BlogPosts.Find(comment.PostId);
+            if (post == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
             if (ModelState.IsValid)
             {
-                comment.Username = User.Identity.GetUserId();
+                comment.Username = User.Identity.GetUserName();
                 comment.DatePosted = DateTimeOffset.Now;
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("BlogPostDetails", new { Slug });
             }
 
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            return RedirectToAction("BlogPostDetails", new { slug = post.Slug });
         }
 
         // ==============================================
@@ -296,21 +299,22 @@ namespace WebAppPortfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult _EditComment([Bind(Include = "PostId,Message,Username,DatePosted")] Comment comment, string Slug)
+        public ActionResult _EditComment([Bind(Include = "Id,PostId,Message,Username,DatePosted")] Comment comment, string Slug)
         {
             if (ModelState.IsValid)
             {
+                var post = db.BlogPosts.Find(comment.PostId);
                 comment.Edited = DateTimeOffset.Now;
 
                 db.Entry(comment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("BlogPostDetails", new { Slug });
+                return RedirectToAction("BlogPostDetails", new { slug = post.Slug });
             }
             return View(comment);
         }
 
         // ==============================================
-        //  COMMENT EDIT VIEW
+        //  COMMENT DELETE VIEW
         // ============================================== 
 
         public ActionResult _DeleteComment(int? id)
@@ -332,9 +336,11 @@ namespace WebAppPortfolio.Controllers
         public ActionResult DeleteCommentConfirmed(int id, string Slug)
         {
             Comment comment = db.Comments.Find(id);
+            var post = db.BlogPosts.Find(comment.PostId);
             db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("BlogPostDetails", new { Slug });
+
+            return RedirectToAction("BlogPostDetails", new { slug = post.Slug });
         }
     }
 }
