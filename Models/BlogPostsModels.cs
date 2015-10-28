@@ -7,9 +7,9 @@ using System.Web.Mvc;
 
 namespace WebAppPortfolio.Models
 {
-    public class BlogPosts
+    public class BlogPost
     {
-        public BlogPosts()
+        public BlogPost()
         {
             this.Comments = new HashSet<Comment>();
         }
@@ -43,7 +43,7 @@ namespace WebAppPortfolio.Models
         public DateTimeOffset DatePosted { get; set; }
         public Nullable<System.DateTimeOffset> Edited { get; set; }
 
-        public virtual BlogPosts Post { get; set; }
+        public virtual BlogPost Post { get; set; }
         public virtual ApplicationUser Author { get; set; }
         //public int? ParentId { get; set; }
         //[ForeignKey("ParentId")]

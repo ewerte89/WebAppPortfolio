@@ -239,7 +239,25 @@
     <Content Include="Content\Fonts\FontAwesome\CSS\font-awesome.css" />
     <Content Include="Content\Fonts\FontAwesome\CSS\font-awesome.min.css" />
     <Content Include="Content\Fonts\FontAwesome\Fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Images\Landscapes\Backcountry_Beartooth_Absaroka.jpg" />
+    <Content Include="Content\Images\Landscapes\badlands_park.jpg" />
+    <Content Include="Content\Images\Landscapes\Badlands_Twilight.jpg" />
+    <Content Include="Content\Images\Landscapes\beartooth_absaroka_wilderness.jpg" />
+    <Content Include="Content\Images\Landscapes\custer_national_forest.jpg" />
+    <Content Include="Content\Images\Landscapes\Fossil_Hunting.jpg" />
+    <Content Include="Content\Images\Landscapes\Lake_Beautiful_Beartooth_Absaroka_Wilderness.jpg" />
+    <Content Include="Content\Images\Landscapes\Meadow_Twilight_in_the_White_River_Valley.jpg" />
+    <Content Include="Content\Images\Landscapes\Old_Rocks.jpg" />
+    <Content Include="Content\Images\Landscapes\Sunset_in_the_White_River_Valley.jpg" />
+    <Content Include="Content\Images\Landscapes\Tetons.jpg" />
+    <Content Include="Content\Images\Landscapes\Walking_on_the_Moon.jpg" />
     <Content Include="Content\Images\Profile_Portraits\CF_LinkedIn - Tamed Hair - Square %28800x800%29.jpg" />
+    <Content Include="Content\Images\View_Clipart\404.jpg" />
+    <Content Include="Content\Images\View_Clipart\4a.jpg" />
+    <Content Include="Content\Images\View_Clipart\4as.jpg" />
+    <Content Include="Content\Images\View_Clipart\4b.jpg" />
+    <Content Include="Content\Images\View_Clipart\bug.jpg" />
+    <Content Include="Content\Images\View_Clipart\Coming Soon 1 %281024x768%29.jpg" />
     <Content Include="Content\Images\View_Clipart\Coming Soon 1.jpg" />
     <Content Include="Content\Images\View_Clipart\Coming Soon 2 %281024x768%29.jpg" />
     <Content Include="Content\Images\View_Clipart\Coming Soon 2.jpg" />
@@ -780,7 +798,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\Landscapes\" />
     <Folder Include="Content\Images\Mono_Backgrounds\" />
     <Folder Include="Content\Images\Technology_Logos\" />
     <Folder Include="Scripts\CommentSystem\" />

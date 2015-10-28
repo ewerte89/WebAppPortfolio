@@ -63,8 +63,9 @@ namespace WebAppPortfolio.Controllers
         //GET: FooterFeed
         public ActionResult BlogFooterFeed()
         {
-            var recent = db.BlogPosts.OrderBy(p => p.Created);
-            return PartialView("~/Views/BlogPosts/BlogWidgets/_BlogFooterFeed.cshtml", recent);
+            var recent = db.BlogPosts.OrderByDescending(p => p.Created);
+            var blogFeed = "~/Views/BlogPosts/BlogWidgets/_BlogFooterFeed.cshtml";
+            return PartialView(blogFeed, recent);
         }
 
         // ==============================================
@@ -74,7 +75,8 @@ namespace WebAppPortfolio.Controllers
         //GET: FooterFeed
         public ActionResult PhotoFooterFeed()
         {
-            return PartialView("~/Views/Shared/_PhotoFooterFeed.cshtml");
+            var photoFeed = "~/Views/Shared/_PhotoFooterFeed.cshtml";
+            return PartialView(photoFeed);
         }
 
 
@@ -123,7 +125,7 @@ namespace WebAppPortfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult BlogPostCreate([Bind(Include = "Id,Created,Updated,Title,Slug,Body,Category,MediaURL,Published")] BlogPosts blogPost, HttpPostedFileBase imageFile)
+        public ActionResult BlogPostCreate([Bind(Include = "Id,Created,Updated,Title,Slug,Body,Category,MediaURL,Published")] BlogPost blogPost, HttpPostedFileBase imageFile)
         {
             if (imageFile != null && imageFile.ContentLength > 0)
             {
@@ -189,7 +191,7 @@ namespace WebAppPortfolio.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogPosts blogPost = db.BlogPosts.Find(id);
+            BlogPost blogPost = db.BlogPosts.Find(id);
             if (blogPost == null)
             {
                 return HttpNotFound();
@@ -202,7 +204,7 @@ namespace WebAppPortfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult BlogPostEdit([Bind(Include = "Id,Created,Updated,Title,Slug,Category,Body,MediaURL,Published")] BlogPosts blogPost)
+        public ActionResult BlogPostEdit([Bind(Include = "Id,Created,Updated,Title,Slug,Category,Body,MediaURL,Published")] BlogPost blogPost)
         {
             if (ModelState.IsValid)
             {
@@ -224,7 +226,7 @@ namespace WebAppPortfolio.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogPosts blogPost = db.BlogPosts.Find(id);
+            BlogPost blogPost = db.BlogPosts.Find(id);
             if (blogPost == null)
             {
                 return HttpNotFound();
@@ -237,7 +239,7 @@ namespace WebAppPortfolio.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult BlogPostDeleteConfirmed(int id)
         {
-            BlogPosts blogPost = db.BlogPosts.Find(id);
+            BlogPost blogPost = db.BlogPosts.Find(id);
             db.BlogPosts.Remove(blogPost);
             db.SaveChanges();
             return RedirectToAction("BlogAdmin");

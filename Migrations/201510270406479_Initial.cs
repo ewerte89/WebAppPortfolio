@@ -10,19 +10,19 @@ namespace WebAppPortfolio.Migrations
             CreateTable(
                 "dbo.BlogPosts",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Created = c.DateTimeOffset(nullable: false, precision: 7),
-                        Updated = c.DateTimeOffset(precision: 7),
-                        Title = c.String(nullable: false),
-                        Slug = c.String(),
-                        Category = c.String(nullable: false),
-                        Body = c.String(nullable: false),
-                        MediaURL = c.String(),
-                        Published = c.Boolean(nullable: false),
-                    })
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    Created = c.DateTimeOffset(nullable: false, precision: 7),
+                    Updated = c.DateTimeOffset(precision: 7),
+                    Title = c.String(nullable: false),
+                    Slug = c.String(),
+                    Category = c.String(nullable: false),
+                    Body = c.String(nullable: false),
+                    MediaURL = c.String(),
+                    Published = c.Boolean(nullable: false),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.Comments",
                 c => new
