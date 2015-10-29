@@ -121,7 +121,6 @@
             if (item.Username == User.Identity.GetUserId() || User.IsInRole("Admin") || User.IsInRole("Moderator"))
             {
                 <br/>
-                <br/>
                 <div>
                     <button class="btn btn-primary">@Html.ActionLink("Edit", "_EditComment", new { id = item.Id })</button>
                     <button class="btn btn-primary">@Html.ActionLink("Delete", "_DeleteComment", new { id = item.Id })</button>
@@ -130,16 +129,19 @@
             <br />
             <!--<div class="hline"></div>-->
         }
+        <br />
         <div>
             <input type="button" class="btn btn-primary" value="Return to Blog Roll" onclick="location.href = '@Url.Action("BlogIndex")'">
         </div>
-        <br />
-        @if (User.Identity.IsAuthenticated || User.IsInRole("Admin") || User.IsInRole("Moderator"))
-        {
-            <input type="button" class="btn btn-primary" value="Modify Post" onclick="location.href = '@Url.Action("BlogAdmin")'">
-            <br />
-            <br />
-        }
+        <br/>
+     
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Moderator"))
+         {
+             <input type="button" class="btn btn-primary" value="Modify Post" onclick="location.href = '@Url.Action("BlogAdmin")'">
+             <br/>
+             <br/>
+         }
+    
     </div>
 </div>
 @section Scripts {
