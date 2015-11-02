@@ -52,7 +52,7 @@ namespace WebAppPortfolio.Controllers
         //GET: SidebarWidget
         public ActionResult BlogSidebarWidget()
         {
-            var recent = db.BlogPosts.OrderBy(p => p.Created);
+            var recent = db.BlogPosts.OrderByDescending(p => p.Created);
             return PartialView("~/Views/BlogPosts/BlogWidgets/_BlogSidebar.cshtml", recent);
         }
 

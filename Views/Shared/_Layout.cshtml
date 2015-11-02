@@ -217,6 +217,18 @@
         <script src="~/Scripts/SyntaxHighlighter/scripts/shCore.js"></script>
         <script src="~/Scripts/SyntaxHighlighter/scripts/shBrushJScript.js"></script>
         <script type="text/javascript">SyntaxHighlighter.all()</script>
+
+        <script src="~/Scripts/BlogLayout/DotDotDot/jquery.dotdotdot.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".dotdotdot").dotdotdot({
+                    ellipsis: '...',
+                    height: 50,
+                    wrap: 'word'
+                });
+            });
+        </script>
+
     </body>
 </html>
 

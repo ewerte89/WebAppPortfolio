@@ -4,6 +4,14 @@
     ViewBag.Title = "BlogPostCreate";
 }
 
+@section css {
+   
+@*<link href="~/Scripts/TinyMCE/skins/lightgray/content.inline.min.css" rel="stylesheet" />
+<link href="~/Scripts/TinyMCE/skins/lightgray/content.min.css" rel="stylesheet" />
+<link href="~/Scripts/TinyMCE/skins/lightgray/skin.ie7.min.css" rel="stylesheet" />
+<link href="~/Scripts/TinyMCE/skins/lightgray/skin.min.css" rel="stylesheet" />*@ 
+}
+
 <div class="bs-docs-section">
     <h1 id="shortcodes" class="page-header"><i class="fa fa-pencil"></i> Create new post </h1>
 </div>
@@ -79,6 +87,17 @@
 @section Scripts {
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
     <script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
+    <script src="~/Scripts/TinyMCE/plugins/advlist/plugin.min.js"></script>
+    <script src="~/Scripts/TinyMCE/plugins/autolink/plugin.min.js"></script>
+    <script src="~/Scripts/TinyMCE/plugins/autoresize/plugin.min.js"></script>
+    <script src="~/Scripts/TinyMCE/plugins/bbcode/plugin.min.js"></script>
+    <script src="~/Scripts/TinyMCE/plugins/code/plugin.min.js"></script>
+    <script src="~/Scripts/TinyMCE/plugins/colorpicker/plugin.min.js"></script>
+    <script src="~/Scripts/TinyMCE/plugins/emoticons/plugin.min.js"></script>
+    <script src="~/Scripts/TinyMCE/plugins/table/plugin.min.js"></script>
+    <script src="~/Scripts/TinyMCE/plugins/template/plugin.min.js"></script>
+    <script src="~/Scripts/TinyMCE/plugins/textcolor/plugin.min.js"></script>
+    <script src="~/Scripts/TinyMCE/themes/modern/theme.min.js"></script>
     <script>
         $(document).ready(function () {
             $('textarea').tinymce({});
