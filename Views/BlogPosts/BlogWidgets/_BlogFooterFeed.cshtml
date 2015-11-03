@@ -21,12 +21,12 @@
             <a href="@Url.Action("BlogPostDetails", new { item.Slug })" class="media-date" style="color: #fff; background-color: #428bca">
                 <span style="font-weight: 600; text-shadow: 1px 1px 0px #333">@item.Created.DateTime.ToString("MMM dd")</span>
             </a>
-            <h4 class="media-heading"><a href="@Url.Action( "BlogPostDetails", new { item.Slug })">@item.Title</a></h4>
-            <div class="post_content">
+            <h4 class="media-heading"><a href="@Url.Action( "BlogPostDetails", new { item.Slug })">@item.Category</a></h4>
+            @*<div class="post_content">
                 <div class="dotdotdot">
                     <p>@Html.Raw(item.Body)</p>
                 </div>
-            </div>
+            </div>*@
         </li>
     </ul>
     }

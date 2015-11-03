@@ -388,6 +388,34 @@ li.media {
     border-radius: 7px 7px 7px 7px;
 }
 
+li.media .media-photo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: 65px;
+    height: 100%;
+    margin: 0px;
+    border-radius: 7px;
+    overflow: hidden;
+    background: no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+li.media a.media-date {
+    float: right !important;
+    background: #000000;
+    border-left: solid 1px #428bca;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 10px 10px 10px;
+    margin: 0 0px 0 10px;
+    height: inherit;
+}
+
 footer a {
     color: #fff;
     font-weight: 900;
@@ -417,12 +445,6 @@ li.media h4.media-heading {
     max-width: 150px;
     border-radius: 7px;    
 }
-
-/*li.media a.media-date {
-    border-left: solid 0px;
-    border-bottom: solid 2px #fff;
-    border-right: solid 2px #fff;
-}*/
 
 /*Section Headers*/
 .section_header.elegant {
